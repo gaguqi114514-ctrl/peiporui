@@ -552,6 +552,124 @@ a{color:inherit}
 .slot b{font-size:15px;color:var(--ink)}
 .slot-emoji{font-size:30px;line-height:1;opacity:.75}
 .slot span{font-family:var(--font-fun)}
+.slot.wide{
+  grid-column:span 3;min-height:150px;flex-direction:row;gap:16px;
+  text-align:left;justify-content:center;align-items:center;
+}
+.slot.wide .slot-emoji{font-size:26px}
+@media (max-width:980px){.slot.wide{grid-column:span 2}}
+@media (max-width:640px){.slot.wide{grid-column:span 1;flex-direction:column;text-align:center}}
+
+/* ---------- 快讯 / 新闻卡 ---------- */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news-card{
+  display:flex;flex-direction:column;background:var(--paper-2);border:3px solid var(--ink);
+  border-radius:14px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);
+  transition:transform .2s;text-decoration:none;
+}
+.news-card:hover{transform:translateY(-4px)}
+.news-card .thumb{position:relative;border-bottom:3px solid var(--ink);background:#e7ddc8}
+.news-card .thumb img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 22%}
+.news-card .badge{
+  position:absolute;top:10px;left:10px;font-size:10.5px;font-weight:900;letter-spacing:.06em;
+  background:var(--red);color:#fff;padding:4px 9px;border-radius:999px;border:2px solid var(--ink);
+  box-shadow:2px 2px 0 var(--ink);
+}
+.news-card .nbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.news-card h4{margin:0;font-size:15.5px;line-height:1.45}
+.news-card p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.75}
+.news-card .src{font-family:var(--font-serif);font-size:11px;letter-spacing:.12em;color:var(--ink-soft);margin-top:auto;padding-top:8px}
+
+/* ---------- 游戏宣传条 ---------- */
+.promo{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  background:linear-gradient(120deg,#241c16,#3d2c1e);color:#ffe9a8;
+  border:3px solid var(--ink);border-radius:20px;padding:26px 30px;
+  box-shadow:10px 10px 0 rgba(36,28,22,.45);position:relative;overflow:hidden;
+}
+.promo::after{
+  content:"🎮";position:absolute;right:-10px;bottom:-28px;font-size:150px;opacity:.12;pointer-events:none;
+}
+.promo h3{margin:0 0 8px;font-size:clamp(22px,3.4vw,32px);color:#fff8e6;letter-spacing:-.01em}
+.promo p{margin:0;font-size:13.5px;line-height:1.85;color:#cbb99c;max-width:62ch}
+.promo .promo-tag{font-size:11.5px;font-weight:900;letter-spacing:.2em;color:var(--yellow);margin-bottom:8px}
+
+/* ---------- 小游戏 ---------- */
+.game-shell{
+  background:var(--paper-2);border:3px solid var(--ink);border-radius:20px;
+  box-shadow:10px 10px 0 var(--ink);padding:16px;position:relative;
+}
+.game-hud{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.hud-stats{display:flex;gap:8px;flex-wrap:wrap}
+.hud-pill{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:2px solid var(--ink);
+  border-radius:999px;background:#fff;font-size:12.5px;font-weight:800;white-space:nowrap;
+}
+.hud-pill b{font-family:var(--font-serif);font-size:15px;color:var(--red);letter-spacing:.02em}
+.game-actions{display:flex;gap:8px;flex-wrap:wrap}
+.deck{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px}
+.pcard{
+  position:relative;background:#fff;border:3px solid var(--ink);border-radius:12px;
+  padding:8px 4px 6px;text-align:center;cursor:pointer;font:inherit;color:inherit;
+  box-shadow:3px 3px 0 var(--ink);overflow:hidden;
+  transition:transform .12s,box-shadow .12s,background .2s;
+}
+.pcard:hover{transform:translateY(-2px);box-shadow:4px 5px 0 var(--ink)}
+.pcard:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pcard .pe{display:block;font-size:25px;line-height:1.15}
+.pcard .picon{display:block;width:42px;height:42px;margin:0 auto 3px}
+.licon{width:28px;height:28px;flex:none;margin-top:1px}
+.pcard .pn{display:block;font-size:11px;font-weight:900;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcard .pc{display:block;font-family:var(--font-serif);font-size:11px;color:var(--ink-soft)}
+.pcard.sel{border-color:var(--red);background:#fff2ee;box-shadow:0 0 0 3px rgba(209,52,42,.25),3px 3px 0 var(--ink)}
+.pcard.disabled{opacity:.45}
+.pcard.disabled:hover{transform:none;box-shadow:3px 3px 0 var(--ink)}
+.pcard .cdm{position:absolute;left:0;right:0;bottom:0;height:var(--cd,0%);background:rgba(36,28,22,.42);pointer-events:none}
+.canvas-wrap{position:relative;border-radius:16px;overflow:hidden;isolation:isolate}
+canvas#game{
+  display:block;width:100%;height:auto;background:#dfe9d8;
+  border:3px solid var(--ink);border-radius:16px;touch-action:manipulation;cursor:crosshair;
+}
+.game-overlay{
+  position:absolute;inset:0;z-index:5;display:grid;place-items:center;padding:20px;
+  background:#f6eedd;text-align:center;overflow:auto;
+}
+.game-overlay[hidden]{display:none}
+.game-overlay .ov-card{max-width:470px}
+.game-overlay h3{margin:0 0 8px;font-size:clamp(20px,3.2vw,28px);line-height:1.3}
+.game-overlay p{margin:0 0 14px;font-size:13.5px;line-height:1.85;color:#43372d}
+.ov-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.game-hint{
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  font-family:var(--font-fun);font-size:12px;color:var(--ink-soft);margin-top:10px;
+}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.legend .panel p{margin:0}
+.legend ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px;position:relative;z-index:1}
+.legend li{
+  display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.65;
+  background:#fffdf6;border:2px solid rgba(36,28,22,.22);border-radius:10px;padding:8px 10px;
+}
+.legend .panel.dark li{background:rgba(255,255,255,.07);border-color:rgba(244,234,215,.22);color:#f0e4cd}
+.legend .panel.dark li b{color:#fff8e6}
+.legend .panel.dark li .cost{color:#c9b99f}
+.legend .le{font-size:21px;line-height:1.1;flex:none}
+.legend b{display:block;font-size:12.5px;margin-bottom:1px}
+.legend span.cost{font-family:var(--font-serif);color:var(--ink-soft);font-size:11px;margin-left:4px}
+
+@media (max-width:860px){
+  .news{grid-template-columns:1fr 1fr}
+  .deck{grid-template-columns:repeat(3,1fr)}
+  .legend{grid-template-columns:1fr}
+  .promo{padding:22px}
+}
+@media (max-width:560px){
+  .news{grid-template-columns:1fr}
+  .game-shell{padding:10px;box-shadow:6px 6px 0 var(--ink)}
+  .canvas-wrap{overflow-x:auto}
+  canvas#game{min-width:640px}
+  .game-hint{font-size:11px}
+}
 
 /* ---------- 响应式 ---------- */
 @media (max-width:980px){

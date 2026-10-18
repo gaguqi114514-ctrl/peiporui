@@ -46,6 +46,7 @@
     setTimeout(function () { el.remove(); }, 3000);
   }
   window.pprToast = toast;
+  window.pprBeep = beep;
 
   /* ---------------- 通用小工具 ---------------- */
   function rand(min, max) { return Math.random() * (max - min) + min; }
