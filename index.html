@@ -36,7 +36,7 @@
       <a href="wanted.html">通缉令</a>
       <a href="gallery.html">黑历史图库</a>
       <a href="honors.html">荣誉墙</a>
-      <a href="game.html">保卫被窝</a>
+      <a href="arcade.html">游戏厅</a>
       <a href="index.html#about">关于本站</a>
     </nav>
     <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
@@ -360,20 +360,134 @@
     </div>
   </section>
 
-  <!-- ================= 小游戏宣传 ================= -->
+  <!-- ================= 游戏厅宣传 ================= -->
   <section class="wrap section" style="padding-top:6px">
     <div class="promo">
       <div>
-        <div class="promo-tag">NEW · 小游戏上线</div>
-        <h3>保卫被窝：把叫醒他的人全部挡回去</h3>
+        <div class="promo-tag">NEW · 游戏厅正式营业</div>
+        <h3>5 台机器，全部免费，全部离谱</h3>
         <p>
-          类植物大战僵尸玩法：珍珠奶茶产卡路里、蓝毛巾当肉盾、玩偶兔扔袜子、眼镜双倍反光、
-          空调减速、闹钟炸弹清场。一共 8 波敌人，最后一波是辅导员亲自上门。
-          撑住了，配泼睿就能继续睡；撑不住，他就得起床——那才是真正的失败。
+          保卫被窝（类植物大战僵尸）、打闹钟（30 秒手速）、接外卖（用被子接住室友的投喂）、
+          配泼睿扭蛋机（12 张卡，SSR 概率 3%）、浓度测试（8 题测出你到底多懂他）。
+          投币口是假的，分数存在你浏览器里——所以最高分也可以自己刷，我们不管。
         </p>
       </div>
-      <a class="btn primary" href="game.html">🎮 开始游戏</a>
+      <a class="btn primary" href="arcade.html">🎮 进游戏厅</a>
     </div>
+  </section>
+
+  <!-- ================= 每日运势 ================= -->
+  <section class="wrap section" id="fortune">
+    <div class="section-head">
+      <div>
+        <div class="tag">Daily · 今日份的离谱</div>
+        <h2 class="section-title">配泼睿今日运势 <span class="count" id="fortuneDate">今天</span></h2>
+        <p class="section-desc">根据他昨晚的翻身次数、今早关闹钟的速度、以及外卖备注字数综合算出。准确率约等于零。</p>
+      </div>
+      <button class="btn small" id="rerollFortune" type="button">🎲 再摇一签</button>
+    </div>
+    <div class="fortune">
+      <div>
+        <h3 id="fortuneTitle">今日宜：赖床</h3>
+        <div class="luck-line">
+          <span class="luck-pill do">宜 <b id="fortuneDo">赖床</b></span>
+          <span class="luck-pill dont">忌 <b id="fortuneDont">早起</b></span>
+          <span class="luck-pill">幸运物 <b id="fortuneItem">蓝毛巾</b></span>
+        </div>
+        <p class="section-desc" id="fortuneText" style="margin-top:14px">今天适合在被窝里思考人生，但不必真的思考。</p>
+      </div>
+      <div class="fortune-side">
+        <div class="idx"><span id="fortuneScore">92</span><small>躺平指数</small></div>
+        <div class="lucky-emoji">🛏️</div>
+        <div class="panel-meta">幸运数字 <b id="fortuneNum">5</b> ／ 幸运色 <b id="fortuneColor">被窝蓝</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 周边商店 ================= -->
+  <section class="wrap section" id="shop">
+    <div class="section-head">
+      <div>
+        <div class="tag">Merch · 官方周边（并不官方）</div>
+        <h2 class="section-title">离谱周边商店 <span class="count">全场售罄</span></h2>
+        <p class="section-desc">商品图片均为文字，价格均为瞎写，库存均为零。点击购买会得到一个温柔的提示。</p>
+      </div>
+      <a class="btn small ghost" href="gallery.html">先看看实物（图库）→</a>
+    </div>
+    <div class="shop">
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">巾</div>
+        <h4>正版蓝毛巾</h4>
+        <p>配泼睿同款，已使用 3 年，未经清洗。附赠一次「结界体验」，有效期 5 分钟。</p>
+        <div><span class="price">¥999</span><s>¥9.9</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">兔</div>
+        <h4>玩偶人质（粉色耳朵兔）</h4>
+        <p>被配泼睿挟持了两年，情绪稳定，会撒娇。买回去可以当人质，也可以当枕头。</p>
+        <div><span class="price">¥666</span><s>¥66</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">镜</div>
+        <h4>同款圆框眼镜</h4>
+        <p>度数 -800，戴上世界立刻变糊。附赠「呀嘞呀嘞」眼神教学，学不会不退钱。</p>
+        <div><span class="price">¥114</span><s>¥514</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">被</div>
+        <h4>被窝体验券（单次）</h4>
+        <p>在配泼睿的被窝里躺 5 分钟，含结界、玩偶与人格侮辱。有效期：明天早上。</p>
+        <div><span class="price">¥514</span><s>¥5.14</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">啧</div>
+        <h4>「呀嘞呀嘞」语音包</h4>
+        <p>共 1 条音频，时长 1.2 秒，重复播放效果极佳。室友听了想搬家。</p>
+        <div><span class="price">¥233</span><s>¥2.33</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">饭</div>
+        <h4>外卖备注模板</h4>
+        <p>九个字：「放门口，别敲门，谢谢。」适用于所有不想与人类接触的场合。</p>
+        <div><span class="price">¥9.9</span><s>¥0.99</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 宿舍热搜 ================= -->
+  <section class="wrap section" id="hot">
+    <div class="section-head">
+      <div>
+        <div class="tag">Trending · 宿舍热搜</div>
+        <h2 class="section-title">他在热搜上住下了</h2>
+        <p class="section-desc">榜单由室友用流量刷出来，数据真实度约等于「配泼睿今天早起了」。</p>
+      </div>
+    </div>
+    <ol class="hotlist">
+      <li><span class="rank">1</span><span>配泼睿 连续躺平 23 小时<span class="tag new">新</span></span><span class="heat">1,145,140</span></li>
+      <li><span class="rank">2</span><span>蓝毛巾 被列为宿舍一级保护物品<span class="tag up">热</span></span><span class="heat">982,331</span></li>
+      <li><span class="rank">3</span><span>室友 集体申请换宿舍</span><span class="heat">871,200</span></li>
+      <li><span class="rank">4</span><span>闹钟 销量暴跌 99%<span class="tag up">热</span></span><span class="heat">765,432</span></li>
+      <li><span class="rank">5</span><span>被窝结界 疑似升级到第二形态</span><span class="heat">654,321</span></li>
+      <li><span class="rank">6</span><span>「放门口别敲门」 成宿舍流行语</span><span class="heat">543,210</span></li>
+      <li><span class="rank">7</span><span>田径场 惊现标准微笑</span><span class="heat">432,109</span></li>
+      <li><span class="rank">8</span><span>辅导员 第 8 波亲自登场<span class="tag new">新</span></span><span class="heat">321,008</span></li>
+      <li><span class="rank">9</span><span>呀嘞呀嘞 语音包上线</span><span class="heat">210,907</span></li>
+      <li><span class="rank">10</span><span>配泼睿 否认自己是网红</span><span class="heat">109,806</span></li>
+    </ol>
+    <p class="legal">热搜词条均由本站虚构，与任何真实平台无关。配泼睿本人表示：「呀嘞呀嘞。」</p>
   </section>
 
   <!-- ================= 关于本站 / 免责 ================= -->
@@ -425,7 +539,7 @@
         <li><a href="wanted.html">通缉令</a></li>
         <li><a href="gallery.html">黑历史图库</a></li>
         <li><a href="honors.html">荣誉墙</a></li>
-        <li><a href="game.html">保卫被窝</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
       </ul>
     </div>
     <div>

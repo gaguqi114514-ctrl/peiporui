@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>配泼睿扭蛋机 · 游戏厅</title>
+<meta name="description" content="12 张配泼睿卡，3 种稀有度。SSR 概率 3%，第 80 抽必出。抽到重复的会变成碎片。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c9a227'/%3E%3Ctext x='32' y='45' font-size='30' text-anchor='middle' fill='%23241c16' font-family='serif'%3E%E6%8A%BD%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>🎁 配泼睿扭蛋机 · 12 张卡</span>
+    <span>💛 SSR 概率 3%，第 80 抽必出</span>
+    <span>🧩 重复卡自动变碎片，童叟无欺</span>
+    <span>🚫 本机不支持退款，也不支持退货</span>
+    <span>🎁 配泼睿扭蛋机 · 12 张卡</span>
+    <span>💛 SSR 概率 3%，第 80 抽必出</span>
+    <span>🧩 重复卡自动变碎片，童叟无欺</span>
+    <span>🚫 本机不支持退款，也不支持退货</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html" class="active">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <div class="tag">Gacha · 氪不改命</div>
+    <h1 class="page-title">配泼睿扭蛋机</h1>
+    <p class="section-desc">
+      12 张卡，3 种稀有度。SSR 概率 3%，第 80 抽保底；十连必出 SR 以上。
+      重复卡会自动变成碎片，100 碎片可以再换一次机会——这就是资本家的温柔。
+    </p>
+  </div>
+
+  <section class="wrap section" style="padding-top:22px">
+    <div class="gacha-shell">
+      <div class="gacha-top">
+        <div class="gacha-stats">
+          <span class="hud-pill">🎟 抽卡券 <b id="tickets">1000</b></span>
+          <span class="hud-pill">📚 收集 <b id="colCount">0</b> / 12</span>
+          <span class="hud-pill">🎯 距保底 <b id="pityLeft">80</b> 抽</span>
+          <span class="hud-pill">🧩 碎片 <b id="shards">0</b></span>
+        </div>
+        <div class="game-actions">
+          <button class="btn small ghost" id="supplyBtn" type="button">领取补给 +100</button>
+          <button class="btn small" id="exchangeBtn" type="button">100 碎片换 1 抽</button>
+        </div>
+      </div>
+
+      <div class="gacha-stage" id="stage">
+        <div class="machine" id="machine">
+          <div class="dome" id="dome">抽</div>
+          <div class="big-title">配泼睿扭蛋机</div>
+          <p>投入抽卡券，随机得到一位配泼睿。<br>抽到的卡会自动收进下面的收藏册。</p>
+        </div>
+        <div class="result-grid" id="resultGrid" hidden></div>
+      </div>
+
+      <div class="pull-row">
+        <button class="btn primary" id="pull1" type="button">单抽 · 100 券</button>
+        <button class="btn blue" id="pull10" type="button">十连 · 900 券</button>
+        <button class="btn ghost" id="skipBtn" type="button" hidden>跳过动画</button>
+      </div>
+      <p class="gacha-stats" id="pullNote" style="margin-top:12px">今日运势：宜抽卡，忌看余额。</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">Collection · 收藏册</div>
+        <h2 class="section-title">12 张配泼睿 <span class="count" id="colTitle">0 / 12</span></h2>
+        <p class="section-desc">抽到重复的卡会变成碎片，所以理论上，只要你有钱，总有一天能集齐。</p>
+      </div>
+    </div>
+    <div class="collection" id="collection"></div>
+  </section>
+
+  <section class="wrap section" style="text-align:center">
+    <h2 class="section-title" style="justify-content:center">抽完了？去玩点需要手速的</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:18px">
+      <a class="btn primary" href="whack.html">⏰ 打闹钟</a>
+      <a class="btn blue" href="catch.html">🍜 接外卖</a>
+      <a class="btn ghost" href="arcade.html">← 回游戏厅</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        本扭蛋机不含任何真实消费，抽卡券不能折现，也不能换泡面。
+        抽到的配泼睿不能带出屏幕，请知悉。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="gacha.js"></script>
+</body>
+</html>

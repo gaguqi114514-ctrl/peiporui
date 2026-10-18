@@ -224,7 +224,7 @@
       }
     };
 
-    if (!seen) setTimeout(openModal, 1300);
+    if (!seen && location.search.indexOf('quiet') < 0) setTimeout(openModal, 1300);
 
     if (stay) {
       stay.addEventListener('click', function () {
@@ -395,5 +395,78 @@
     } else {
       document.title = originalTitle;
     }
+  });
+
+  /* ---------------- 每日运势 ---------------- */
+  var FORTUNE_DO = ['赖床', '再睡五分钟', '点外卖', '裹被子出门', '假装很忙', '沉默', '刷手机', '把玩偶摆正'];
+  var FORTUNE_DONT = ['早起', '定闹钟', '跑步', '开班会', '洗头', '回消息', '称体重', '和人说话'];
+  var FORTUNE_ITEM = ['蓝毛巾', '玩偶兔', '圆框眼镜', '外卖备注', '充电线', '格纹毯', '拖鞋'];
+  var FORTUNE_COLOR = ['被窝蓝', '毛巾白', '眼镜黑', '奶茶棕', '跑道红'];
+  var FORTUNE_TEXT = [
+    '运势显示：今天最适合躺着。如果必须起床，请先在被窝里坐五分钟，做好心理准备。',
+    '今天会遇到一个叫「闹钟」的敌人，它响它的，你睡你的。胜负已分。',
+    '今日有贵人（室友）相助，会帮你带饭。记得说谢谢，但不用起床。',
+    '谨慎出行：田径场方向有镜头，可能会被拍成表情包。',
+    '财运一般，适合点外卖；桃花一般，适合继续睡。',
+    '今日宜沉默。你不需要解释为什么还没起，被子会替你回答。',
+    '运势提示：有人正在做你的网站。不用管他，睡吧。'
+  ];
+
+  var fortuneBox = document.getElementById('fortuneTitle');
+  if (fortuneBox) {
+    var seed = 0;
+    var renderFortune = function (n) {
+      var pick = function (arr) { return arr[(seed + n) % arr.length]; };
+      var doIt = pick(FORTUNE_DO);
+      var dont = pick(FORTUNE_DONT);
+      var item = pick(FORTUNE_ITEM);
+      var color = pick(FORTUNE_COLOR);
+      var text = pick(FORTUNE_TEXT);
+      var score = 82 + ((seed * 7 + n * 13) % 18);
+      var luckyNum = 1 + ((seed * 3 + n * 5) % 99);
+      fortuneBox.textContent = '今日宜：' + doIt;
+      var doEl = document.getElementById('fortuneDo');
+      var dontEl = document.getElementById('fortuneDont');
+      var itemEl = document.getElementById('fortuneItem');
+      var colorEl = document.getElementById('fortuneColor');
+      var textEl = document.getElementById('fortuneText');
+      var scoreElF = document.getElementById('fortuneScore');
+      var numEl = document.getElementById('fortuneNum');
+      var dateEl = document.getElementById('fortuneDate');
+      if (doEl) doEl.textContent = doIt;
+      if (dontEl) dontEl.textContent = dont;
+      if (itemEl) itemEl.textContent = item;
+      if (colorEl) colorEl.textContent = color;
+      if (textEl) textEl.textContent = text;
+      if (scoreElF) scoreElF.textContent = String(score);
+      if (numEl) numEl.textContent = String(luckyNum);
+      if (dateEl) {
+        var d = new Date();
+        dateEl.textContent = (d.getMonth() + 1) + ' 月 ' + d.getDate() + ' 日';
+      }
+    };
+    seed = new Date().getFullYear() * 372 + (new Date().getMonth() + 1) * 31 + new Date().getDate();
+    renderFortune(0);
+    var reroll = document.getElementById('rerollFortune');
+    if (reroll) {
+      var rolls = 0;
+      reroll.addEventListener('click', function () {
+        rolls += 1;
+        renderFortune(rolls);
+        beep(880, 0.06, 'sine');
+        if (rolls === 5) toast('再摇下去今天的运势就变成「宜睡觉」了');
+        if (rolls >= 8) toast('行了行了，签筒都被你摇坏了');
+      });
+    }
+  }
+
+  /* ---------------- 周边商店（永远售罄） ---------------- */
+  $$('.buy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      toast('已售罄。配泼睿表示：这玩意儿我自己都没货。');
+      beep(200, 0.12, 'sawtooth');
+      btn.textContent = '售罄';
+      btn.setAttribute('disabled', 'disabled');
+    });
   });
 })();

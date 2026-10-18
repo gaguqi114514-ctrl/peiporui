@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>游戏厅 · 配泼睿</title>
+<meta name="description" content="配泼睿游戏厅：保卫被窝、打闹钟、接外卖、配泼睿扭蛋机、浓度测试。全部免费，全部离谱。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23241c16'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23ffe066' font-family='serif'%3E%F0%9F%8E%AE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>🎮 配泼睿游戏厅 · 今日营业中</span>
+    <span>🪙 全部游戏免费，投币口是假的</span>
+    <span>⏰ 打闹钟：30 秒内敲掉所有闹钟</span>
+    <span>🍜 接外卖：用被子接住室友的投喂</span>
+    <span>🎁 扭蛋机：12 张卡，SSR 概率 3%</span>
+    <span>🧪 浓度测试：你到底有多懂配泼睿</span>
+    <span>🎮 配泼睿游戏厅 · 今日营业中</span>
+    <span>🪙 全部游戏免费，投币口是假的</span>
+    <span>⏰ 打闹钟：30 秒内敲掉所有闹钟</span>
+    <span>🍜 接外卖：用被子接住室友的投喂</span>
+    <span>🎁 扭蛋机：12 张卡，SSR 概率 3%</span>
+    <span>🧪 浓度测试：你到底有多懂配泼睿</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html" class="active">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <div class="tag">Arcade · 宿舍游戏厅</div>
+    <h1 class="page-title">游戏厅</h1>
+    <p class="section-desc">
+      共 5 台机器，全部由室友开发，配泼睿本人拒绝参与测试（他在睡觉）。
+      投币口是假的，分数会存在你的浏览器里，最高分也会——所以你可以自己刷，我们不管。
+    </p>
+  </div>
+
+  <section class="wrap section" style="padding-top:22px">
+    <div class="arcade">
+      <a class="cabinet" href="game.html">
+        <div class="cover c-blue">
+          <span class="stamp">招牌</span>
+          <span class="glyph">守</span>
+        </div>
+        <div class="cbody">
+          <h3>保卫被窝</h3>
+          <p>类植物大战僵尸。种奶茶、摆毛巾、扔袜子，挡住 8 波想叫他起床的人。</p>
+          <div class="meta">
+            <span>最高分 <b data-best="ppr-game-best">0</b></span>
+            <span class="play">开始守夜 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cabinet" href="whack.html">
+        <div class="cover c-red">
+          <span class="stamp">30 秒</span>
+          <span class="glyph">敲</span>
+        </div>
+        <div class="cbody">
+          <h3>打闹钟</h3>
+          <p>闹钟从被窝里一个个冒出来，敲掉它们。但别敲到配泼睿的头，他会记仇。</p>
+          <div class="meta">
+            <span>最高分 <b data-best="ppr-whack-best">0</b></span>
+            <span class="play">开始敲 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cabinet" href="catch.html">
+        <div class="cover c-green">
+          <span class="stamp">45 秒</span>
+          <span class="glyph">接</span>
+        </div>
+        <div class="cbody">
+          <h3>接外卖</h3>
+          <p>室友往楼上扔外卖，你用被子接。接到泡面加 10 分，接到闹钟少一条命。</p>
+          <div class="meta">
+            <span>最高分 <b data-best="ppr-catch-best">0</b></span>
+            <span class="play">开始接 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cabinet" href="gacha.html">
+        <div class="cover c-gold">
+          <span class="stamp">氪不改命</span>
+          <span class="glyph">抽</span>
+        </div>
+        <div class="cbody">
+          <h3>配泼睿扭蛋机</h3>
+          <p>12 张卡，3 种稀有度。抽到重复的会自动放进床底，不占地方。</p>
+          <div class="meta">
+            <span>已收集 <b data-best="ppr-gacha-count">0</b>/12</span>
+            <span class="play">开始抽 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cabinet" href="quiz.html">
+        <div class="cover c-purple">
+          <span class="stamp">8 题</span>
+          <span class="glyph">测</span>
+        </div>
+        <div class="cbody">
+          <h3>配泼睿浓度测试</h3>
+          <p>8 道题，测出你到底有多懂他。满分的人会被怀疑是本人。</p>
+          <div class="meta">
+            <span>最高 <b data-best="ppr-quiz-best">0</b>/16</span>
+            <span class="play">开始测 →</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="cabinet" aria-disabled="true" style="opacity:.62">
+        <div class="cover c-ink">
+          <span class="stamp">施工中</span>
+          <span class="glyph">富</span>
+        </div>
+        <div class="cbody">
+          <h3>配泼睿大富翁</h3>
+          <p>玩法：掷骰子，走到「被窝」格就原地睡一觉，游戏结束。配泼睿拒绝参与设计。</p>
+          <div class="meta">
+            <span>上线时间：下辈子</span>
+            <span class="play" style="color:var(--ink-soft)">敬请期待</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">House Rules · 游戏厅规则</div>
+        <h2 class="section-title">进店须知</h2>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">规则 1</span>
+        <p class="quote">「一切分数和战绩均为本地存档，清空浏览器就没了，就像配泼睿的起床决心。」</p>
+        <div class="who">店长（站长）</div>
+      </div>
+      <div class="card">
+        <span class="badge">规则 2</span>
+        <p class="quote">「禁止在游戏厅连续游玩超过 3 小时，否则你会比配泼睿更不想动。」</p>
+        <div class="who">宿管阿姨</div>
+      </div>
+      <div class="card">
+        <span class="badge">规则 3</span>
+        <p class="quote">「本厅所有游戏都不含内购。真的没有。别找了。氪金入口在扭蛋机那里，但那是假的。」</p>
+        <div class="who">财务（兼保洁）</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="text-align:center">
+    <h2 class="section-title" style="justify-content:center">玩累了就回去看看他的黑历史</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:18px">
+      <a class="btn primary" href="gallery.html">📸 黑历史图库</a>
+      <a class="btn blue" href="wanted.html">🚨 通缉令</a>
+      <a class="btn ghost" href="index.html">🏠 返回首页</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        本厅所有游戏均为纯前端娱乐，无内购、无广告、无真实伤害。
+        游戏里的配泼睿睡得很好，现实中的也是。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var nodes = document.querySelectorAll('[data-best]');
+  for (var i = 0; i < nodes.length; i++) {
+    var key = nodes[i].getAttribute('data-best');
+    var val = 0;
+    try { val = parseInt(localStorage.getItem(key) || '0', 10) || 0; } catch (e) { val = 0; }
+    nodes[i].textContent = String(val);
+  }
+})();
+</script>
+</body>
+</html>

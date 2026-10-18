@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打闹钟 · 配泼睿游戏厅</title>
+<meta name="description" content="30 秒内敲掉从被窝里冒出来的闹钟，别敲到配泼睿的头。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d1342a'/%3E%3Ctext x='32' y='45' font-size='30' text-anchor='middle' fill='%23fff8e6' font-family='serif'%3E%E6%95%B2%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>⏰ 打闹钟 · 30 秒极限挑战</span>
+    <span>🔨 敲中闹钟 +10，连击加成</span>
+    <span>😴 敲到配泼睿的头扣分还扣时间</span>
+    <span>🏆 300 分以上可获得「闹钟收割机」称号</span>
+    <span>⏰ 打闹钟 · 30 秒极限挑战</span>
+    <span>🔨 敲中闹钟 +10，连击加成</span>
+    <span>😴 敲到配泼睿的头扣分还扣时间</span>
+    <span>🏆 300 分以上可获得「闹钟收割机」称号</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html" class="active">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <div class="tag">Game 02 · 手速考验</div>
+    <h1 class="page-title">打闹钟</h1>
+    <p class="section-desc">
+      配泼睿的闹钟一天要响 47 次，每次都被他按掉。现在轮到你：30 秒内，把从被窝里冒出来的闹钟全部敲掉。
+      注意——偶尔冒出来的不是闹钟，是他本人的头。敲到你就完了（扣 20 分，还扣 2 秒）。
+    </p>
+  </div>
+
+  <section class="wrap section" style="padding-top:22px">
+    <div class="game-shell">
+      <div class="play-hud">
+        <div class="play-stats">
+          <span class="hud-pill">⏱ 剩余 <b id="timeLeft">30.0</b></span>
+          <span class="hud-pill">🔨 得分 <b id="score">0</b></span>
+          <span class="hud-pill">🔥 连击 <b id="combo">0</b></span>
+          <span class="hud-pill">🏆 最佳 <b id="best">0</b></span>
+        </div>
+        <div class="game-actions">
+          <button class="btn small ghost" id="restartBtn" type="button">↺ 重开</button>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="game" width="900" height="540" aria-label="打闹钟游戏画面"></canvas>
+        <div class="game-overlay" id="overlay" hidden></div>
+      </div>
+      <div class="game-hint">
+        <span>💡 用鼠标或手指点击冒出来的闹钟；键盘 1–9 也能敲对应的洞。</span>
+        <span>空格开始 ／ 重开请点右上角（配泼睿不同意再玩一次）</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">How to Play · 玩法</div>
+        <h2 class="section-title">三条规则</h2>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">+10</span>
+        <p class="quote">敲中闹钟得 10 分，连续敲中每次多 2 分，最高 +30 的连击奖励。</p>
+        <div class="who">规则一</div>
+      </div>
+      <div class="card">
+        <span class="badge">金色</span>
+        <p class="quote">偶尔会冒出金色闹钟，值 50 分。它响得特别大声，是室友特意买来害他的。</p>
+        <div class="who">规则二</div>
+      </div>
+      <div class="card">
+        <span class="badge">−20</span>
+        <p class="quote">敲到配泼睿的头：扣 20 分、清空连击、再扣 2 秒。他会用「呀嘞呀嘞」的眼神看你。</p>
+        <div class="who">规则三</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="text-align:center">
+    <h2 class="section-title" style="justify-content:center">手速不够？去玩点慢的</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:18px">
+      <a class="btn primary" href="game.html">🎮 保卫被窝</a>
+      <a class="btn blue" href="catch.html">🍜 接外卖</a>
+      <a class="btn ghost" href="arcade.html">← 回游戏厅</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        游戏里的闹钟是画出来的，敲坏不用赔。现实中的闹钟请温柔对待，它只是想叫你起床。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="whack.js"></script>
+</body>
+</html>
