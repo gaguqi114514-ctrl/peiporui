@@ -907,8 +907,84 @@ canvas#game{
   .section{padding:40px 0}
   .hero-actions .btn{flex:1;justify-content:center}
 }
+/* ============================================================
+   照片化组件：头像、照片卡面、记忆翻牌
+   ============================================================ */
+
+/* 结算弹窗里的真人照片 */
+.ov-photo{
+  display:block;width:104px;height:104px;object-fit:cover;margin:0 auto 10px;
+  border:4px solid var(--paper-2);border-radius:50%;
+  box-shadow:0 0 0 3px var(--ink),4px 5px 0 rgba(36,28,22,.28);
+  transform:rotate(-3deg);background:#e7dcc4;
+}
+.ov-photo.wide{width:170px;height:110px;border-radius:12px;transform:rotate(-1.5deg)}
+
+/* 扭蛋卡面照片 */
+.gcard .art{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:var(--pos,center 25%);z-index:0;
+}
+.gcard .art.silhouette{filter:grayscale(1) contrast(1.1) brightness(.92)}
+.gcard .veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(20,14,10,0) 42%,rgba(20,14,10,.86) 100%);
+}
+.gcard .rar{
+  position:absolute;top:4px;right:4px;z-index:3;font-size:8px;font-weight:900;
+  letter-spacing:.08em;background:rgba(20,14,10,.72);color:#ffe9a8;padding:1px 5px;border-radius:4px;
+}
+.gcard .cbody{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:4px 4px 5px;text-align:center}
+.gcard .cbody .cname{
+  font-size:9.5px;font-weight:900;line-height:1.25;color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.65);
+}
+.gcard .cbody .stars{font-size:8.5px;letter-spacing:.1em;color:#ffe066}
+.gcard.locked .art{display:none}
+
+/* 游戏厅照片封面 */
+.cabinet .cover.photo{background-size:cover;background-position:center 28%;background-repeat:no-repeat}
+.cabinet .cover.photo::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(165deg,rgba(20,14,10,.1),rgba(20,14,10,.7));
+}
+.cabinet .cover.photo .glyph{text-shadow:0 3px 0 rgba(0,0,0,.35),4px 4px 0 rgba(36,28,22,.3)}
+
+/* 记忆翻牌 */
+.memory-shell{
+  position:relative;background:var(--paper-2);border:3px solid var(--ink);border-radius:20px;
+  box-shadow:10px 10px 0 var(--ink);padding:18px;
+}
+.memory-hud{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:14px}
+.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:760px;margin-inline:auto}
+.mcard{
+  position:relative;aspect-ratio:3/4;border:0;padding:0;background:transparent;cursor:pointer;
+  perspective:900px;-webkit-tap-highlight-color:transparent;
+}
+.mcard .inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,1.2,.4,1)}
+.mcard.flip .inner{transform:rotateY(180deg)}
+.mcard .mf,.mcard .mb{
+  position:absolute;inset:0;border:3px solid var(--ink);border-radius:12px;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:4px 4px 0 var(--ink);
+}
+.mcard .mb{
+  background:repeating-linear-gradient(135deg,#7db3e0 0 12px,#6aa6d8 12px 24px);
+  display:grid;place-items:center;font-family:var(--font-serif);font-size:30px;color:#fff;
+  text-shadow:2px 2px 0 rgba(36,28,22,.35);
+}
+.mcard .mf{transform:rotateY(180deg);background:#fff}
+.mcard .mf img{width:100%;height:100%;object-fit:cover;display:block}
+.mcard.matched .mf{border-color:#3f8f6a;box-shadow:4px 4px 0 #3f8f6a}
+.mcard.matched{animation:pop .3s ease}
+.mcard.matched .mb{background:#cfe8dc}
+.memory-note{text-align:center;font-family:var(--font-fun);font-size:12px;color:var(--ink-soft);margin-top:12px}
+@media (max-width:640px){
+  .memory-grid{grid-template-columns:repeat(3,1fr);gap:9px}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001s!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
+

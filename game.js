@@ -22,6 +22,9 @@
   var INK = '#241c16';
   var FONT = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif';
 
+  var PHOTO_SLEEP = new Image();
+  PHOTO_SLEEP.src = 'assets/sleep.jpg';
+
   /* ================= 数据 ================= */
   var PLANTS = {
     milktea: { name: '珍珠奶茶', cost: 50,  hp: 300,  cd: 5,  kind: 'producer', interval: 7.5, produce: 25 },
@@ -717,14 +720,16 @@
       try { localStorage.setItem('ppr-game-best', String(best)); } catch (e) { /* ignore */ }
     }
     if (win) {
-      showOverlay('<h3>🎉 守住了！</h3><p>第 8 波的辅导员被你挡了回去。<br>配泼睿翻了个身，嘟囔了一句「我下的任务罢了」，继续睡。<br><b>得分：' + state.score + '</b></p>' +
+      showOverlay('<img class="ov-photo wide" src="assets/towel.jpg" alt="睡着的配泼睿">' +
+        '<h3>🎉 守住了！</h3><p>第 8 波的辅导员被你挡了回去。<br>配泼睿翻了个身，嘟囔了一句「我下的任务罢了」，继续睡。<br><b>得分：' + state.score + '</b></p>' +
         '<div class="ov-btns"><button class="btn primary" data-act="restart" type="button">再来一局</button>' +
         '<button class="btn ghost" data-act="home" type="button">去通缉令看看</button></div>');
       beep(660, 0.1, 'square');
       setTimeout(function () { beep(880, 0.12, 'square'); }, 130);
       setTimeout(function () { beep(1180, 0.18, 'square'); }, 280);
     } else {
-      showOverlay('<h3>😱 被窝被掀开了！</h3><p>室友成功把配泼睿叫醒了。<br>他现在的表情是：<b>呀嘞呀嘞</b>。<br><b>得分：' + state.score + '</b></p>' +
+      showOverlay('<img class="ov-photo" src="assets/yare.jpg" alt="配泼睿：呀嘞呀嘞">' +
+        '<h3>😱 被窝被掀开了！</h3><p>室友成功把配泼睿叫醒了。<br>他现在的表情是：<b>呀嘞呀嘞</b>。<br><b>得分：' + state.score + '</b></p>' +
         '<div class="ov-btns"><button class="btn primary" data-act="restart" type="button">再守一次</button>' +
         '<button class="btn ghost" data-act="home" type="button">认输了，去看通缉令</button></div>');
       beep(200, 0.3, 'sawtooth');
@@ -1053,6 +1058,36 @@
     ctx.restore();
   }
 
+  function drawPortrait(x, y, size, rot) {
+    ctx.save();
+    ctx.translate(x + size / 2, y + size / 2);
+    if (rot) ctx.rotate(rot);
+    ctx.fillStyle = '#fff';
+    rr(ctx, -size / 2, -size / 2, size, size + 16, 4);
+    ctx.fill();
+    ctx.strokeStyle = INK;
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    var pad = 4;
+    ctx.save();
+    rr(ctx, -size / 2 + pad, -size / 2 + pad, size - pad * 2, size - pad * 2, 3);
+    ctx.clip();
+    if (PHOTO_SLEEP.complete && PHOTO_SLEEP.naturalWidth) {
+      ctx.drawImage(PHOTO_SLEEP, -size / 2 + pad, -size / 2 + pad, size - pad * 2, size - pad * 2);
+    } else {
+      ctx.fillStyle = '#cfe2f7';
+      ctx.fillRect(-size / 2, -size / 2, size, size);
+      drawSprite(ctx, 'sleep', 0, 0, size * 0.85);
+    }
+    ctx.restore();
+    ctx.fillStyle = 'rgba(36,28,22,.62)';
+    ctx.font = '700 9px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('守护目标', 0, size / 2 + 8);
+    ctx.restore();
+  }
+
   function drawBg() {
     var g = ctx.createLinearGradient(0, 0, 0, H);
     g.addColorStop(0, '#f2f7ec');
@@ -1105,6 +1140,9 @@
     ctx.lineWidth = 2;
     ctx.stroke();
     drawSprite(ctx, 'sleep', 47, H * 0.36 + 80, 62);
+
+    /* 守护目标：配泼睿本人大头照 */
+    drawPortrait(10, 32, 76, -0.05);
 
     ctx.save();
     ctx.translate(26, H * 0.74);

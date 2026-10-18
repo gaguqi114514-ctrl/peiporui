@@ -5,20 +5,21 @@
   'use strict';
 
   var CARDS = [
-    { id: 'towel', rarity: 'ssr', name: '本源蓝毛巾', glyph: '巾', desc: '传说中他真正的身体。洗了就消失，所以他从不洗。' },
-    { id: 'yare', rarity: 'ssr', name: '呀嘞呀嘞', glyph: '啧', desc: '一句敷衍，胜过千言万语。适用于一切被叫起床的场合。' },
-    { id: 'prof', rarity: 'ssr', name: '教授形态', glyph: '教', desc: 'bilibili 认证：全网最年轻的教授。本人表示「呀嘞呀嘞」。' },
+    { id: 'towel', rarity: 'ssr', name: '本源蓝毛巾', glyph: '巾', img: 'assets/sleep.jpg', pos: 'center 30%', desc: '传说中他真正的身体。洗了就消失，所以他从不洗。' },
+    { id: 'yare', rarity: 'ssr', name: '呀嘞呀嘞', glyph: '啧', img: 'assets/yare.jpg', pos: 'center 28%', desc: '一句敷衍，胜过千言万语。适用于一切被叫起床的场合。' },
+    { id: 'prof', rarity: 'ssr', name: '教授形态', glyph: '教', img: 'assets/prof.jpg', pos: 'center 20%', desc: 'bilibili 认证：全网最年轻的教授。本人表示「呀嘞呀嘞」。' },
 
-    { id: 'webcam', rarity: 'sr', name: '深夜网课', glyph: '课', desc: '摄像头开着，灵魂已经提前下线，人还在。' },
-    { id: 'track', rarity: 'sr', name: '被迫营业', glyph: '跑', desc: '田径场上的标准微笑，价值连城，含泪拍摄。' },
-    { id: 'brawl', rarity: 'sr', name: '三人对峙', glyph: '吵', desc: '宿舍辩论赛，辩题：今晚到底谁洗碗。至今没有结论。' },
-    { id: 'toy', rarity: 'sr', name: '玩偶人质', glyph: '兔', desc: '它在他手里，室友只能乖乖带饭、关灯、递水。' },
+    { id: 'webcam', rarity: 'sr', name: '深夜网课', glyph: '课', img: 'assets/webcam.jpg', pos: 'center 26%', desc: '摄像头开着，灵魂已经提前下线，人还在。' },
+    { id: 'track', rarity: 'sr', name: '被迫营业', glyph: '跑', img: 'assets/track.jpg', pos: 'center 16%', desc: '田径场上的标准微笑，价值连城，含泪拍摄。' },
+    { id: 'brawl', rarity: 'sr', name: '三人对峙', glyph: '吵', img: 'assets/brawl.jpg', pos: 'center 28%', desc: '宿舍辩论赛，辩题：今晚到底谁洗碗。至今没有结论。' },
 
-    { id: 'blanket', rarity: 'r', name: '标准防御形态', glyph: '被', desc: '头戴蓝毛巾，身披格子毯，怀里抱着人质。' },
-    { id: 'note', rarity: 'r', name: '外卖备注文学', glyph: '饭', desc: '「放门口，别敲门，谢谢。」九个字，写尽一生。' },
-    { id: 'five', rarity: 'r', name: '再玩五分钟', glyph: '五', desc: '说完这句话之后，已经过去三个小时。' },
-    { id: 'screen', rarity: 'r', name: '凌晨三点的屏幕光', glyph: '光', desc: '照亮整个宿舍，室友全员清醒，他毫无察觉。' },
-    { id: 'barrier', rarity: 'r', name: '被窝结界·初阶', glyph: '界', desc: '入门技能。范围：整张床，偶尔溢出到地板。' }
+    { id: 'wanted', rarity: 'r', name: '通缉悬赏', glyph: '缉', img: 'assets/wanted.jpg', pos: 'center 8%', desc: '赏金 114,514,000,000 津巴布韦币，至今无人领取。' },
+    { id: 'meme', rarity: 'r', name: '名场面', glyph: '任', img: 'assets/meme.jpg', pos: 'center 16%', desc: '「我下的任务罢了。」本宿舍群转发 400 余次。' },
+    { id: 'stick', rarity: 'r', name: '深夜练功', glyph: '棍', img: 'assets/stick.jpg', pos: 'center 22%', desc: '手持长棍，脚踩蓝拖鞋，据说在练起床气驱散术。' },
+
+    { id: 'sil1', rarity: 'r', name: '剪影·睡眠模式', glyph: '影', img: 'assets/towel.jpg', pos: 'center 32%', silhouette: true, desc: '抽到了影子。别急，影子也是他的一部分。' },
+    { id: 'sil2', rarity: 'r', name: '剪影·待机模式', glyph: '影', img: 'assets/webcam.jpg', pos: 'center 24%', silhouette: true, desc: '屏幕前的剪影，正在等待下一次下播。' },
+    { id: 'sil3', rarity: 'r', name: '剪影·觉醒模式', glyph: '影', img: 'assets/yalei.jpg', pos: 'center 30%', silhouette: true, desc: '据说这张剪影出现时，代表他真的生气了（并没有）。' }
   ];
 
   var RARITY = {
@@ -59,7 +60,12 @@
       var s = parseInt(localStorage.getItem('ppr-gacha-shards') || '', 10);
       if (!isNaN(s)) state.shards = s;
       var c = JSON.parse(localStorage.getItem('ppr-gacha-col') || '[]');
-      if (Object.prototype.toString.call(c) === '[object Array]') state.col = c;
+      if (Object.prototype.toString.call(c) === '[object Array]') {
+        state.col = c.filter(function (id) {
+          for (var i = 0; i < CARDS.length; i++) if (CARDS[i].id === id) return true;
+          return false;
+        });
+      }
     } catch (e) { /* ignore */ }
   }
 
@@ -97,18 +103,45 @@
     if (opts && opts.delay) {
       d.style.animationDelay = opts.delay + 'ms';
     }
-    var glyph = document.createElement('div');
-    glyph.className = 'glyph';
-    glyph.textContent = card.glyph;
-    var name = document.createElement('div');
-    name.className = 'cname';
-    name.textContent = card.name;
-    var stars = document.createElement('div');
-    stars.className = 'stars';
-    stars.textContent = RARITY[card.rarity].stars;
-    d.appendChild(glyph);
-    d.appendChild(name);
-    d.appendChild(stars);
+    if (card.img) {
+      var art = document.createElement('img');
+      art.className = 'art' + (card.silhouette ? ' silhouette' : '');
+      art.src = card.img;
+      art.alt = card.name;
+      if (card.pos) art.style.setProperty('--pos', card.pos);
+      d.appendChild(art);
+      var veil = document.createElement('div');
+      veil.className = 'veil';
+      d.appendChild(veil);
+      var rar = document.createElement('span');
+      rar.className = 'rar';
+      rar.textContent = RARITY[card.rarity].label;
+      d.appendChild(rar);
+      var body = document.createElement('div');
+      body.className = 'cbody';
+      var nm = document.createElement('div');
+      nm.className = 'cname';
+      nm.textContent = card.name;
+      var st = document.createElement('div');
+      st.className = 'stars';
+      st.textContent = RARITY[card.rarity].stars;
+      body.appendChild(nm);
+      body.appendChild(st);
+      d.appendChild(body);
+    } else {
+      var glyph = document.createElement('div');
+      glyph.className = 'glyph';
+      glyph.textContent = card.glyph;
+      var name = document.createElement('div');
+      name.className = 'cname';
+      name.textContent = card.name;
+      var stars = document.createElement('div');
+      stars.className = 'stars';
+      stars.textContent = RARITY[card.rarity].stars;
+      d.appendChild(glyph);
+      d.appendChild(name);
+      d.appendChild(stars);
+    }
     if (opts && opts.isNew) {
       var bag = document.createElement('div');
       bag.style.cssText = 'position:absolute;top:4px;left:4px;font-size:8px;font-weight:900;background:#d1342a;color:#fff;padding:1px 4px;border-radius:4px;letter-spacing:.06em';
@@ -193,7 +226,7 @@
         gainedShards += RARITY[card.rarity].shard;
       }
       if (card.rarity === 'ssr') gotSSR = true;
-      el.grid.appendChild(cardEl(card, { delay: k * 90, isNew: isNew, dupe: !isNew }));
+      el.grid.appendChild(cardEl(card, { isNew: isNew, dupe: !isNew }));
     }
 
     save();
@@ -265,7 +298,7 @@
 
   if (location.search.indexOf('demo') >= 0) {
     state.tickets = 5000;
-    state.col = ['towel', 'webcam', 'track', 'toy', 'blanket', 'note', 'screen', 'barrier'];
+    state.col = ['towel', 'webcam', 'track', 'brawl', 'wanted', 'meme'];
     state.shards = 240;
     state.pity = 31;
     renderStats();

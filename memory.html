@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>记脸挑战 · 配泼睿游戏厅</title>
+<meta name="description" content="翻牌配对：6 张配泼睿照片各两张，用最少步数全部配对。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23241c16'/%3E%3Ctext x='32' y='45' font-size='30' text-anchor='middle' fill='%23ffe066' font-family='serif'%3E%E8%AE%B0%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>🧠 记脸挑战 · 6 张配泼睿各两张</span>
+    <span>📸 全部是他的真实照片</span>
+    <span>🎯 步数越少越强，8 步以内是记忆大师</span>
+    <span>🧠 记脸挑战 · 6 张配泼睿各两张</span>
+    <span>📸 全部是他的真实照片</span>
+    <span>🎯 步数越少越强，8 步以内是记忆大师</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html" class="active">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <div class="tag">Game 06 · 记忆力</div>
+    <h1 class="page-title">记脸挑战</h1>
+    <p class="section-desc">
+      12 张牌，6 张配泼睿照片各两张。翻开两张相同的就配对成功，全部配对即通关。
+      步数越少越强——毕竟你连他的脸都记不住，还谈什么朋友。
+    </p>
+  </div>
+
+  <section class="wrap section" style="padding-top:22px">
+    <div class="memory-shell">
+      <div class="memory-hud">
+        <div class="play-stats">
+          <span class="hud-pill">🧠 步数 <b id="moves">0</b></span>
+          <span class="hud-pill">⏱ 用时 <b id="clock">0.0</b> 秒</span>
+          <span class="hud-pill">🏆 最佳 <b id="best">—</b></span>
+          <span class="hud-pill">✅ 配对 <b id="pairs">0</b>/6</span>
+        </div>
+        <div class="game-actions">
+          <button class="btn small ghost" id="resetBtn" type="button">↺ 重新洗牌</button>
+        </div>
+      </div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <div class="memory-note">💡 先随便翻两张热身；第一张牌翻开的瞬间开始计时。</div>
+      <div class="game-overlay" id="memoryOverlay" hidden></div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">Rules · 规则</div>
+        <h2 class="section-title">为什么是这 6 张</h2>
+        <p class="section-desc">因为这 6 张最好认，也最丢人。</p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">6 对</span>
+        <p class="quote">蓝毛巾、呀嘞呀嘞、被迫营业、深夜网课、教授形态、三人对峙——每张出现两次。</p>
+        <div class="who">牌库</div>
+      </div>
+      <div class="card">
+        <span class="badge">计分</span>
+        <p class="quote">每翻两张算一步，配对成功不额外加分。步数越少，说明你平时盯他盯得越久。</p>
+        <div class="who">规则</div>
+      </div>
+      <div class="card">
+        <span class="badge">最佳</span>
+        <p class="quote">最佳步数会存在你浏览器里，下次进游戏厅能看到。0 步是不可能的，别想了。</p>
+        <div class="who">存档</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="text-align:center">
+    <h2 class="section-title" style="justify-content:center">记完脸，去扭个蛋</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:18px">
+      <a class="btn primary" href="gacha.html">🎁 扭蛋机</a>
+      <a class="btn blue" href="whack.html">⏰ 打闹钟</a>
+      <a class="btn ghost" href="arcade.html">← 回游戏厅</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        本游戏使用的是配泼睿本人授权的照片（他本人并不知情）。翻错牌不会扣分，放心翻。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="memory.js"></script>
+</body>
+</html>

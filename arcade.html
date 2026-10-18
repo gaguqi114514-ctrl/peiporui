@@ -50,15 +50,16 @@
     <div class="tag">Arcade · 宿舍游戏厅</div>
     <h1 class="page-title">游戏厅</h1>
     <p class="section-desc">
-      共 5 台机器，全部由室友开发，配泼睿本人拒绝参与测试（他在睡觉）。
+      共 6 台机器（外加 3 台施工中），全部由室友开发，配泼睿本人拒绝参与测试（他在睡觉）。
       投币口是假的，分数会存在你的浏览器里，最高分也会——所以你可以自己刷，我们不管。
+      所有游戏里的角色和卡面，都是他本人的照片。
     </p>
   </div>
 
   <section class="wrap section" style="padding-top:22px">
     <div class="arcade">
       <a class="cabinet" href="game.html">
-        <div class="cover c-blue">
+        <div class="cover c-blue photo" style="background-image:url('assets/towel.jpg')">
           <span class="stamp">招牌</span>
           <span class="glyph">守</span>
         </div>
@@ -73,7 +74,7 @@
       </a>
 
       <a class="cabinet" href="whack.html">
-        <div class="cover c-red">
+        <div class="cover c-red photo" style="background-image:url('assets/face.jpg')">
           <span class="stamp">30 秒</span>
           <span class="glyph">敲</span>
         </div>
@@ -88,7 +89,7 @@
       </a>
 
       <a class="cabinet" href="catch.html">
-        <div class="cover c-green">
+        <div class="cover c-green photo" style="background-image:url('assets/track.jpg')">
           <span class="stamp">45 秒</span>
           <span class="glyph">接</span>
         </div>
@@ -103,7 +104,7 @@
       </a>
 
       <a class="cabinet" href="gacha.html">
-        <div class="cover c-gold">
+        <div class="cover c-gold photo" style="background-image:url('assets/wanted.jpg')">
           <span class="stamp">氪不改命</span>
           <span class="glyph">抽</span>
         </div>
@@ -118,7 +119,7 @@
       </a>
 
       <a class="cabinet" href="quiz.html">
-        <div class="cover c-purple">
+        <div class="cover c-purple photo" style="background-image:url('assets/webcam.jpg')">
           <span class="stamp">8 题</span>
           <span class="glyph">测</span>
         </div>
@@ -132,8 +133,23 @@
         </div>
       </a>
 
+      <a class="cabinet" href="memory.html">
+        <div class="cover c-ink photo" style="background-image:url('assets/brawl.jpg')">
+          <span class="stamp">12 张</span>
+          <span class="glyph">记</span>
+        </div>
+        <div class="cbody">
+          <h3>记脸挑战</h3>
+          <p>翻牌配对，6 张配泼睿照片各两张。别被「呀嘞呀嘞」和剪影卡搞混了。</p>
+          <div class="meta">
+            <span>最少步数 <b data-best="ppr-memory-best">0</b></span>
+            <span class="play">开始记 →</span>
+          </div>
+        </div>
+      </a>
+
       <div class="cabinet" aria-disabled="true" style="opacity:.62">
-        <div class="cover c-ink">
+        <div class="cover c-ink photo" style="background-image:url('assets/stick.jpg')">
           <span class="stamp">施工中</span>
           <span class="glyph">富</span>
         </div>
@@ -142,6 +158,36 @@
           <p>玩法：掷骰子，走到「被窝」格就原地睡一觉，游戏结束。配泼睿拒绝参与设计。</p>
           <div class="meta">
             <span>上线时间：下辈子</span>
+            <span class="play" style="color:var(--ink-soft)">敬请期待</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cabinet" aria-disabled="true" style="opacity:.62">
+        <div class="cover c-ink photo" style="background-image:url('assets/meme.jpg')">
+          <span class="stamp">施工中</span>
+          <span class="glyph">跑</span>
+        </div>
+        <div class="cbody">
+          <h3>配泼睿跑酷</h3>
+          <p>他裹着被子在跑道上跑，你要帮他躲开闹钟、室友和辅导员的电话。第一关他就躺下了。</p>
+          <div class="meta">
+            <span>进度：0.2%</span>
+            <span class="play" style="color:var(--ink-soft)">敬请期待</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cabinet" aria-disabled="true" style="opacity:.62">
+        <div class="cover c-ink photo" style="background-image:url('assets/prof.jpg')">
+          <span class="stamp">施工中</span>
+          <span class="glyph">消</span>
+        </div>
+        <div class="cbody">
+          <h3>配泼睿消消乐</h3>
+          <p>三个同样的配泼睿连成一线就消失。测试版只有一个问题：消掉之后他还在床上。</p>
+          <div class="meta">
+            <span>进度：画了个图标</span>
             <span class="play" style="color:var(--ink-soft)">敬请期待</span>
           </div>
         </div>
@@ -224,7 +270,7 @@
     var key = nodes[i].getAttribute('data-best');
     var val = 0;
     try { val = parseInt(localStorage.getItem(key) || '0', 10) || 0; } catch (e) { val = 0; }
-    nodes[i].textContent = String(val);
+    nodes[i].textContent = (val === 0 && key.indexOf('count') < 0) ? '—' : String(val);
   }
 })();
 </script>

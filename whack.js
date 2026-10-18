@@ -18,6 +18,9 @@
   var INK = '#241c16';
   var FONT = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif';
 
+  var PHOTO_FACE = new Image();
+  PHOTO_FACE.src = 'assets/face.jpg';
+
   var timeEl = document.getElementById('timeLeft');
   var scoreEl = document.getElementById('score');
   var comboEl = document.getElementById('combo');
@@ -147,6 +150,24 @@
     g.beginPath(); g.arc(0, 14, 5, 0.2, Math.PI - 0.2); g.stroke();
   }
 
+  function drawPhotoHead(g) {
+    if (!(PHOTO_FACE.complete && PHOTO_FACE.naturalWidth)) { drawHead(g); return; }
+    var R = 38;
+    g.save();
+    g.beginPath();
+    g.arc(0, 0, R, 0, Math.PI * 2);
+    g.closePath();
+    g.clip();
+    g.drawImage(PHOTO_FACE, -R, -R, R * 2, R * 2);
+    g.restore();
+    g.strokeStyle = '#fff';
+    g.lineWidth = 5;
+    g.beginPath(); g.arc(0, 0, R, 0, Math.PI * 2); g.stroke();
+    g.strokeStyle = INK;
+    g.lineWidth = 2.5;
+    g.beginPath(); g.arc(0, 0, R + 2.5, 0, Math.PI * 2); g.stroke();
+  }
+
   /* ---------- 覆盖层 ---------- */
   function showOverlay(html) {
     overlayEl.innerHTML = '<div class="ov-card">' + html + '</div>';
@@ -154,11 +175,11 @@
   }
   function hideOverlay() { overlayEl.hidden = true; }
 
-  var START_HTML = '<div style="font-size:40px;line-height:1">⏰</div>' +
+  var START_HTML = '<img class="ov-photo" src="assets/face.jpg" alt="配泼睿">' +
     '<h3>打闹钟</h3>' +
     '<p>30 秒内敲掉所有从被窝里冒出来的闹钟。<br>' +
     '敲中 <b>+10</b>，连击有加成；金色闹钟 <b>+50</b>。<br>' +
-    '如果冒出来的是<b>配泼睿的头</b>，千万别敲——<b>−20 分、−2 秒</b>。</p>' +
+    '如果冒出来的是<b>配泼睿本人的脸</b>，千万别敲——<b>−20 分、−2 秒</b>。</p>' +
     '<div class="ov-btns"><button class="btn primary" data-act="start" type="button">开始游戏</button>' +
     '<a class="btn ghost" href="arcade.html">回游戏厅</a></div>';
 
@@ -196,7 +217,8 @@
     else if (state.score >= 200) rank = '宿舍保安队长';
     else if (state.score >= 120) rank = '正常人类';
     else if (state.score >= 60) rank = '手有点慢';
-    showOverlay('<h3>⏰ 时间到</h3><p>共敲掉闹钟得分 <b>' + state.score + '</b> 分。<br>' +
+    showOverlay('<img class="ov-photo" src="assets/yare.jpg" alt="配泼睿：呀嘞呀嘞">' +
+      '<h3>⏰ 时间到</h3><p>共敲掉闹钟得分 <b>' + state.score + '</b> 分。<br>' +
       '你的称号：<b>' + rank + '</b><br>历史最佳：' + state.best + '</p>' +
       '<div class="ov-btns"><button class="btn primary" data-act="start" type="button">再来一次</button>' +
       '<a class="btn ghost" href="arcade.html">回游戏厅</a></div>');
@@ -360,9 +382,9 @@
         ctx.beginPath();
         ctx.rect(h.x - 120, h.y - 170, 240, 172);
         ctx.clip();
-        ctx.translate(h.x, h.y - 46 + rise);
+        ctx.translate(h.x, h.y - (o.type === 'head' ? 38 : 30) + rise);
         ctx.scale(sc, sc);
-        if (o.type === 'head') drawHead(ctx);
+        if (o.type === 'head') drawPhotoHead(ctx);
         else drawAlarm(ctx, o.type === 'gold');
         ctx.restore();
       }

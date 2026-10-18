@@ -149,6 +149,14 @@
     };
   }
 
+  function photoOf(score) {
+    if (score >= 16) return 'assets/yare.jpg';
+    if (score >= 13) return 'assets/towel.jpg';
+    if (score >= 9) return 'assets/track.jpg';
+    if (score >= 5) return 'assets/webcam.jpg';
+    return 'assets/prof.jpg';
+  }
+
   function finish() {
     if (bar) bar.style.width = '100%';
     if (idxEl) idxEl.textContent = '已完成 · 8 / 8';
@@ -160,7 +168,7 @@
     }
     root.innerHTML =
       '<div class="quiz-result">' +
-      '<div style="font-size:40px;line-height:1">🧪</div>' +
+      '<img class="ov-photo" src="' + photoOf(state.score) + '" alt="配泼睿">' +
       '<div class="rank">' + r.rank + '</div>' +
       '<div class="score">浓度 ' + state.score + ' / 16 ／ 历史最高 ' + best + '</div>' +
       '<p style="font-size:14px;line-height:1.85;color:#43372d;max-width:56ch;margin:0 auto 18px">' + r.desc + '</p>' +

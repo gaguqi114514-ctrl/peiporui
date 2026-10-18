@@ -19,6 +19,9 @@
   var FONT = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif';
   var EMOJI = '"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif';
 
+  var PHOTO_FACE = new Image();
+  PHOTO_FACE.src = 'assets/face.jpg';
+
   var timeEl = document.getElementById('timeLeft');
   var scoreEl = document.getElementById('score');
   var livesEl = document.getElementById('lives');
@@ -78,7 +81,7 @@
   }
   function hideOverlay() { overlayEl.hidden = true; }
 
-  var START_HTML = '<div style="font-size:40px;line-height:1">🍜</div>' +
+  var START_HTML = '<img class="ov-photo" src="assets/face.jpg" alt="配泼睿">' +
     '<h3>接外卖</h3>' +
     '<p>室友把外卖从楼上扔下来，你用被子接住。<br>' +
     '🍜 +10　🥟 +15　🥤 +20　⭐ +30<br>' +
@@ -119,7 +122,8 @@
     else if (state.score >= 400) rank = '宿舍干饭王';
     else if (state.score >= 250) rank = '合格室友';
     else if (state.score >= 120) rank = '勉强活着';
-    showOverlay('<h3>' + (reason === 'lives' ? '🥊 被打晕了' : '⏱ 时间到') + '</h3>' +
+    showOverlay('<img class="ov-photo" src="assets/' + (reason === 'lives' ? 'yare' : 'face') + '.jpg" alt="配泼睿">' +
+      '<h3>' + (reason === 'lives' ? '🥊 被打晕了' : '⏱ 时间到') + '</h3>' +
       '<p>接到外卖总分 <b>' + state.score + '</b>。<br>你的称号：<b>' + rank + '</b><br>历史最佳：' + state.best + '</p>' +
       '<div class="ov-btns"><button class="btn primary" data-act="start" type="button">再来一次</button>' +
       '<a class="btn ghost" href="arcade.html">回游戏厅</a></div>');
@@ -310,22 +314,37 @@
     ctx.ellipse(x, y + 36, 84, 12, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    /* 被子后面的头 */
-    ctx.fillStyle = '#f2c9a3';
-    circ(ctx, x, y - 30, 24);
-    ctx.fill();
-    ctx.strokeStyle = INK;
-    ctx.lineWidth = 2.6;
-    ctx.stroke();
-    ctx.fillStyle = '#2b2320';
-    ctx.beginPath();
-    ctx.arc(x, y - 30, 24, Math.PI * 1.04, Math.PI * 1.96);
-    ctx.closePath();
-    ctx.fill();
-    ctx.strokeStyle = INK;
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.arc(x - 8, y - 30, 3.4, 0.2, Math.PI - 0.2); ctx.stroke();
-    ctx.beginPath(); ctx.arc(x + 8, y - 30, 3.4, 0.2, Math.PI - 0.2); ctx.stroke();
+    /* 被子后面的头：真人大头照 */
+    if (PHOTO_FACE.complete && PHOTO_FACE.naturalWidth) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y - 32, 28, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.drawImage(PHOTO_FACE, x - 28, y - 60, 56, 56);
+      ctx.restore();
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.arc(x, y - 32, 28, 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 2.4;
+      ctx.beginPath(); ctx.arc(x, y - 32, 30, 0, Math.PI * 2); ctx.stroke();
+    } else {
+      ctx.fillStyle = '#f2c9a3';
+      circ(ctx, x, y - 30, 24);
+      ctx.fill();
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 2.6;
+      ctx.stroke();
+      ctx.fillStyle = '#2b2320';
+      ctx.beginPath();
+      ctx.arc(x, y - 30, 24, Math.PI * 1.04, Math.PI * 1.96);
+      ctx.closePath();
+      ctx.fill();
+      ctx.strokeStyle = INK;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(x - 8, y - 30, 3.4, 0.2, Math.PI - 0.2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(x + 8, y - 30, 3.4, 0.2, Math.PI - 0.2); ctx.stroke();
+    }
 
     /* 被子 */
     ctx.fillStyle = '#7db3e0';
