@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>接外卖 · 配泼睿游戏厅</title>
+<meta name="description" content="室友往楼上扔外卖，你用被子接住。接到闹钟和拳套会扣命。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233f8f6a'/%3E%3Ctext x='32' y='45' font-size='30' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E6%8E%A5%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>🍜 接外卖 · 45 秒极限投喂</span>
+    <span>🛏️ 用被子接住室友扔上来的外卖</span>
+    <span>🥊 小心拳套，接到少一条命</span>
+    <span>⏰ 闹钟会扣 5 秒，别接</span>
+    <span>🍜 接外卖 · 45 秒极限投喂</span>
+    <span>🛏️ 用被子接住室友扔上来的外卖</span>
+    <span>🥊 小心拳套，接到少一条命</span>
+    <span>⏰ 闹钟会扣 5 秒，别接</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html" class="active">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <div class="tag">Game 03 · 反应力</div>
+    <h1 class="page-title">接外卖</h1>
+    <p class="section-desc">
+      配泼睿懒得下楼，室友只好把外卖从楼下往上扔。你负责用被子接住：泡面 10 分、饺子 15 分、奶茶 20 分、金色星星 30 分。
+      拳套会扣一条命，闹钟会扣 5 秒。45 秒内，尽量别让他饿着。
+    </p>
+  </div>
+
+  <section class="wrap section" style="padding-top:22px">
+    <div class="game-shell">
+      <div class="play-hud">
+        <div class="play-stats">
+          <span class="hud-pill">⏱ 剩余 <b id="timeLeft">45.0</b></span>
+          <span class="hud-pill">🍜 得分 <b id="score">0</b></span>
+          <span class="hud-pill">❤️ 命 <b id="lives">3</b></span>
+          <span class="hud-pill">🏆 最佳 <b id="best">0</b></span>
+        </div>
+        <div class="game-actions">
+          <button class="btn small ghost" id="restartBtn" type="button">↺ 重开</button>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="game" width="900" height="540" aria-label="接外卖游戏画面" style="touch-action:none"></canvas>
+        <div class="game-overlay" id="overlay" hidden></div>
+      </div>
+      <div class="game-hint">
+        <span>💡 移动鼠标 / 手指，或按 ← → 移动被子；接住掉下来的外卖。</span>
+        <span>空格开始 ／ 接到拳套会少一条命</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">Menu · 今日外卖</div>
+        <h2 class="section-title">接什么最划算</h2>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">+10</span>
+        <p class="quote">泡面：宿舍硬通货，一分钟泡好，三分钟吃完，一辈子不想再吃。</p>
+        <div class="who">🍜 常见</div>
+      </div>
+      <div class="card">
+        <span class="badge">+20</span>
+        <p class="quote">奶茶：配泼睿的续命水。接到一杯，他能在被窝里多躺两个小时。</p>
+        <div class="who">🥤 稀有</div>
+      </div>
+      <div class="card">
+        <span class="badge">+30</span>
+        <p class="quote">金色星星：不知道谁扔的，也没人承认。接住就是赚到。</p>
+        <div class="who">⭐ 传说</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="text-align:center">
+    <h2 class="section-title" style="justify-content:center">接累了？换台机器</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:18px">
+      <a class="btn primary" href="whack.html">⏰ 打闹钟</a>
+      <a class="btn blue" href="gacha.html">🎁 扭蛋机</a>
+      <a class="btn ghost" href="arcade.html">← 回游戏厅</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        现实中请勿高空抛物。游戏里的外卖都是像素做的，掉地上也不心疼。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<script src="script.js?v=7"></script>
+<script src="catch.js?v=7"></script>
+</body>
+</html>

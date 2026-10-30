@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保卫被窝 2.0 · 配泼睿游戏厅</title>
+<meta name="description" content="重制版保卫被窝：8 种道具、7 种敌人、10 波防守、拖鞋防御、铲子与选卡。敌人全部顶着配泼睿的真人头像。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6fb0'/%3E%3Ctext x='32' y='45' font-size='32' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E5%AE%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>🎮 保卫被窝 2.0 · 重制版上线</span>
+    <span>🃏 开局先选 6 张道具卡</span>
+    <span>👟 每行一双拖鞋，敌人冲进来会被一脚踢飞</span>
+    <span>❤️ 被窝耐久 3 点，别再让室友得手了</span>
+    <span>🎓 7 种敌人，全部顶着配泼睿的真人头像</span>
+    <span>🎮 保卫被窝 2.0 · 重制版上线</span>
+    <span>🃏 开局先选 6 张道具卡</span>
+    <span>👟 每行一双拖鞋，敌人冲进来会被一脚踢飞</span>
+    <span>❤️ 被窝耐久 3 点，别再让室友得手了</span>
+    <span>🎓 7 种敌人，全部顶着配泼睿的真人头像</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html" class="active">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <div class="tag">Mini Game 2.0 · 宿舍保卫战</div>
+    <h1 class="page-title">保卫被窝</h1>
+    <p class="section-desc">
+      配泼睿正在睡觉。室友、快递小哥、宿管阿姨、辅导员带着一群闹钟从楼道冲进来，目标只有一个：把他叫醒。
+      开局先选 6 张道具卡，种在 5×9 的床单上，撑过 10 波。每行还有一双拖鞋，是最后的防线。
+      敌人全部顶着他本人的头像——打他们，你可能会有点心理负担。
+    </p>
+  </div>
+
+  <section class="wrap section" style="padding-top:22px">
+    <div class="game-shell">
+      <div class="play-hud">
+        <div class="play-stats">
+          <span class="hud-pill">❤️ 被窝 <b id="heartCount">3</b></span>
+          <span class="hud-pill">🥤 卡路里 <b id="calCount">175</b></span>
+          <span class="hud-pill">🌊 波次 <b id="waveNum">0 / 10</b></span>
+          <span class="hud-pill">⭐ 得分 <b id="scoreNum">0</b></span>
+          <span class="hud-pill">🏆 最佳 <b id="bestNum">0</b></span>
+        </div>
+        <div class="game-actions">
+          <button class="btn small" id="shovelBtn" type="button">铲子</button>
+          <button class="btn small" id="pauseBtn" type="button">暂停</button>
+          <button class="btn small" id="speedBtn" type="button">加速</button>
+          <button class="btn small ghost" id="restartBtn" type="button">↺ 重开</button>
+        </div>
+      </div>
+
+      <div class="wave-wrap" aria-hidden="true">
+        <div class="wave-fill" id="waveFill"></div>
+        <span id="waveLabel">准备开始</span>
+      </div>
+
+      <div class="deck" id="deck" role="toolbar" aria-label="道具卡槽"></div>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="980" height="560" aria-label="保卫被窝游戏画面"></canvas>
+        <div class="game-overlay" id="gameOverlay"></div>
+      </div>
+
+      <div class="game-hint">
+        <span>💡 点卡槽选道具 → 点床单种植；点太阳收卡路里；点掉落的拍立得也能加分。</span>
+        <span>快捷键：1–6 选卡 ／ 空格暂停 ／ Esc 取消选择（手机建议横屏）</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">Field Guide · 图鉴</div>
+        <h2 class="section-title">道具与敌人</h2>
+        <p class="section-desc">开局只能带 6 种道具，怎么搭配是这游戏唯一的策略深度。</p>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="panel">
+        <div class="panel-label">我方 · 8 种道具（选 6）</div>
+        <ul>
+          <li><canvas class="licon" data-sprite="milktea" width="52" height="52" aria-hidden="true"></canvas><span><b>珍珠奶茶 <span class="cost">50</span></b>产卡路里，每 7.5 秒 +25。开局先来两杯。</span></li>
+          <li><canvas class="licon" data-sprite="towel" width="52" height="52" aria-hidden="true"></canvas><span><b>蓝毛巾 <span class="cost">25</span></b>2000 血肉盾，丢在最前面挡刀。</span></li>
+          <li><canvas class="licon" data-sprite="toy" width="52" height="52" aria-hidden="true"></canvas><span><b>玩偶兔 <span class="cost">100</span></b>主力单体输出，往本行扔袜子。</span></li>
+          <li><canvas class="licon" data-sprite="glasses" width="52" height="52" aria-hidden="true"></canvas><span><b>眼镜 <span class="cost">175</span></b>一次两发，打坦克和 BOSS 很快。</span></li>
+          <li><canvas class="licon" data-sprite="latiao" width="52" height="52" aria-hidden="true"></canvas><span><b>辣条 <span class="cost">75</span></b>射速极快但单发伤害低，专治闹钟群。</span></li>
+          <li><canvas class="licon" data-sprite="ac" width="52" height="52" aria-hidden="true"></canvas><span><b>空调 <span class="cost">150</span></b>本行敌人减速 45%，和输出叠着用。</span></li>
+          <li><canvas class="licon" data-sprite="alarm" width="52" height="52" aria-hidden="true"></canvas><span><b>闹钟炸弹 <span class="cost">125</span></b>1.1 秒后爆炸，周围三行 900 伤害，救场用。</span></li>
+          <li><canvas class="licon" data-sprite="selfie" width="52" height="52" aria-hidden="true"></canvas><span><b>自拍杆 <span class="cost">200</span></b>穿透整行，一发打到所有敌人，后期核心。</span></li>
+        </ul>
+      </div>
+      <div class="panel dark">
+        <div class="panel-label">敌方 · 8 种叫起床的人</div>
+        <ul>
+          <li><canvas class="licon" data-sprite="alarm" width="52" height="52" aria-hidden="true"></canvas><span><b>闹钟 <span class="cost">110 血</span></b>跑得最快、皮最薄，专治手慢的玩家。</span></li>
+          <li><img class="licon round" src="assets/head_food.jpg" alt=""><span><b>快递小哥 <span class="cost">190 血</span></b>跑得快，喊着「有你的快递」，用敲门声叫醒他。</span></li>
+          <li><img class="licon round" src="assets/face.jpg" alt=""><span><b>室友 <span class="cost">240 血</span></b>普通单位，数量最多，也最烦人。</span></li>
+          <li><img class="licon round" src="assets/head_nice.jpg" alt=""><span><b>拖鞋室友 <span class="cost">380 血</span></b>穿着拖鞋来，走路慢，护甲 15%。</span></li>
+          <li><img class="licon round" src="assets/head_sky.jpg" alt=""><span><b>宿管阿姨 <span class="cost">640 血</span></b>重装查寝，护甲 25%，走得慢但很能扛。</span></li>
+          <li><img class="licon round" src="assets/head_clone.jpg" alt=""><span><b>分身 <span class="cost">300 血</span></b>倒下时会分裂成两个小分身，越打越多。</span></li>
+          <li><img class="licon round" src="assets/head_towel.jpg" alt=""><span><b>毛巾怪 <span class="cost">500 血</span></b>盖着毛巾冲过来，看不清路但冲得很猛。</span></li>
+          <li><img class="licon round" src="assets/yare.jpg" alt=""><span><b>辅导员（BOSS） <span class="cost">3200 血</span></b>第 10 波登场，会喊话让本行道具停摆 1.2 秒。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <div>
+        <div class="tag">How to Survive · 生存指南</div>
+        <h2 class="section-title">三条保命技巧</h2>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge">经济</span>
+        <p class="quote">前两波别急着堆输出，先种 2–3 杯奶茶。卡路里是这个游戏唯一的硬通货。</p>
+        <div class="who">技巧一</div>
+      </div>
+      <div class="card">
+        <span class="badge">阵型</span>
+        <p class="quote">毛巾放第 7 列，输出放第 2–4 列，空调夹在中间。别把输出放太前，会被第一个吃掉。</p>
+        <div class="who">技巧二</div>
+      </div>
+      <div class="card">
+        <span class="badge">保命</span>
+        <p class="quote">每行只有一双拖鞋。它踢完就没了，被窝耐久只有 3 点——省着点用。</p>
+        <div class="who">技巧三</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="text-align:center">
+    <h2 class="section-title" style="justify-content:center">守累了？去玩点别的</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:18px">
+      <a class="btn primary" href="arcade.html">🎮 回游戏厅</a>
+      <a class="btn blue" href="gacha.html">🎁 扭蛋机</a>
+      <a class="btn ghost" href="index.html">🏠 返回首页</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        本游戏为纯前端娱乐，所有敌人都是画出来的（除了他的脸）。现实中请勿用拖鞋攻击室友。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<script src="script.js?v=7"></script>
+<script src="game.js?v=7"></script>
+</body>
+</html>

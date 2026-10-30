@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>配泼睿 · 官方网站（非官方）</title>
+<meta name="description" content="配泼睿（Paper Ray）唯一指定整蛊主页：被窝研究所所长、蓝毛巾骑士团团长。认真你就输了。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6fb0'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23fff8e6' font-family='serif'%3E%E9%85%8D%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>🎉 全网独家 · 配泼睿官方网站（非官方）</span>
+    <span>🔵 已通过 ISO 9001 帅哥认证</span>
+    <span>🛏️ 被窝占有率连续 23 年排名第一</span>
+    <span>📢 本站已被 3 位室友实名举报</span>
+    <span>💤 参观期间请勿大声喧哗，他在睡觉</span>
+    <span>🎉 全网独家 · 配泼睿官方网站（非官方）</span>
+    <span>🔵 已通过 ISO 9001 帅哥认证</span>
+    <span>🛏️ 被窝占有率连续 23 年排名第一</span>
+    <span>📢 本站已被 3 位室友实名举报</span>
+    <span>💤 参观期间请勿大声喧哗，他在睡觉</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="logo" href="index.html" aria-label="配泼睿官方网站首页">
+      <span class="logo-mark">配</span>
+      <span class="logo-text">配泼睿<em>Paper Ray</em></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="index.html" class="active">首页</a>
+      <a href="wanted.html">通缉令</a>
+      <a href="gallery.html">黑历史图库</a>
+      <a href="honors.html">荣誉墙</a>
+      <a href="arcade.html">游戏厅</a>
+      <a href="index.html#about">关于本站</a>
+    </nav>
+    <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" title="开关音效">🔊</button>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <span class="kicker">🔵 官方认证 · 非卖品 · 请勿投喂</span>
+      <h1 class="hero-title">配<span class="hl">泼睿</span></h1>
+      <p class="hero-sub">Paper Ray ／ 被窝结界唯一持有者 ／ 蓝毛巾骑士团团长</p>
+      <p class="hero-lede">
+        欢迎来到配泼睿的官方网站。本站由他本人（未经允许）授权、由他的朋友们含泪维护。
+        请自备零食与耐心，参观约需 3 分钟，超时将按分钟收取被窝使用费。
+        如果看到他在动，请不要惊慌，那只是他在翻身。
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="wanted.html">🚨 立即通缉</a>
+        <a class="btn blue" href="gallery.html">📸 查看黑历史</a>
+        <a class="btn ghost" href="https://space.bilibili.com/1807171328" target="_blank" rel="noopener">📺 他的 B 站</a>
+        <button class="btn ghost copy-link" type="button">🔗 复制链接去祸害别人</button>
+      </div>
+      <div class="hero-facts">
+        <span class="chip">在线时长 <b>23h/天</b></span>
+        <span class="chip">眼镜度数 <b>-800</b></span>
+        <span class="chip">社交电量 <b>3%</b></span>
+        <span class="chip">婚姻状况 <b>已与被窝结婚</b></span>
+      </div>
+    </div>
+
+    <div class="hero-photo reveal">
+      <figure class="photo-card">
+        <img src="assets/towel.jpg" alt="配泼睿裹着蓝色毛巾与格子毯" width="960" height="1280">
+        <figcaption>图 1 · 蓝毛巾结界形态（稀有）<br>拍摄于某个不想起床的下午</figcaption>
+        <span class="sticker st-1">已认证 ✔</span>
+        <span class="sticker st-2">真人？</span>
+        <span class="sticker st-3">勿扰中</span>
+      </figure>
+      <div class="float-emoji e1">🧣</div>
+      <div class="float-emoji e3">😴</div>
+      <span class="sticker st-4">🛏️ 24h 营业</span>
+    </div>
+  </section>
+
+  <!-- ================= 今日状态 + 数据 ================= -->
+  <section class="wrap section" id="status">
+    <div class="section-head">
+      <div>
+        <div class="tag">Live · 实时监控</div>
+        <h2 class="section-title">配泼睿现在在干嘛 <span class="count">更新于今天</span></h2>
+        <p class="section-desc">本板块由安装在室友手机里的摄像头（并没有）实时提供数据，准确率高达 87%。</p>
+      </div>
+      <button class="btn small" id="rollStatus" type="button">🎲 刷新状态</button>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <div class="panel-label">CURRENT STATUS</div>
+        <p class="status-line" id="statusText">正在被窝里开周会（主持人：自己）</p>
+        <div class="panel-meta" id="statusTime">更新于 --:--:--</div>
+      </div>
+      <div class="panel dark">
+        <div class="panel-label">距离下一次「再玩五分钟」</div>
+        <div class="big-time mono" id="countdown">00:00:00</div>
+        <div class="panel-meta">历史兑现率：0%</div>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-top:22px">
+      <div class="stat reveal">
+        <div class="num">99.9<small>%</small></div>
+        <div class="lbl">被窝占有率</div>
+        <div class="mini">剩下 0.1% 在去被窝的路上</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">23.5<small>小时</small></div>
+        <div class="lbl">每日躺平时长</div>
+        <div class="mini">含午休、晚休与思考人生</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">-800<small>度</small></div>
+        <div class="lbl">眼镜度数</div>
+        <div class="mini">世界是糊的，心是亮的</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">3<small>%</small></div>
+        <div class="lbl">社交电量</div>
+        <div class="mini">充电 5 小时，通话 2 分钟</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 个人档案 ================= -->
+  <section class="wrap section" id="dossier">
+    <div class="section-head">
+      <div>
+        <div class="tag">档案 · 绝密（其实大家都知道）</div>
+        <h2 class="section-title">配泼睿个人档案 <span class="count">编号 PPR-114514</span></h2>
+        <p class="section-desc">以下信息由本站情报部门（站长）整理，部分内容已做艺术加工，请勿用于相亲。</p>
+      </div>
+    </div>
+
+    <div class="dossier reveal">
+      <div class="dossier-top">
+        <span>PERSONAL FILE / 个人档案</span>
+        <span class="stamp">已核实？</span>
+      </div>
+      <dl>
+        <div class="d-row"><dt>姓名</dt><dd>配泼睿（英文名 Paper Ray，音译误差已无法挽回）</dd></div>
+        <div class="d-row"><dt>别名</dt><dd>睿哥 · 配配 · 泼泼 · 那个裹着蓝毛巾的</dd></div>
+        <div class="d-row"><dt>国籍</dt><dd>中华人民共和国（被窝特别行政区）</dd></div>
+        <div class="d-row"><dt>职业</dt><dd>全职被窝研究员 ／ 兼职人类 ／ 蓝毛巾形象代言人</dd></div>
+        <div class="d-row"><dt>身高</dt><dd>1.83 m（含鞋底 + 踮脚 + 发型 + 自信加成）</dd></div>
+        <div class="d-row"><dt>体重</dt><dd>60 kg（不含毛巾、玩偶与手机）</dd></div>
+        <div class="d-row"><dt>血型</dt><dd>R 型（R = 睿，医学上暂不承认）</dd></div>
+        <div class="d-row"><dt>星座</dt><dd>天花板座（常年仰望，从不落地）</dd></div>
+        <div class="d-row"><dt>口头禅</dt><dd>“我下的任务罢了。”</dd></div>
+        <div class="d-row"><dt>出道作品</dt><dd>《蓝毛巾与我》· 豆瓣评分 <span class="redact">10.0</span> 分</dd></div>
+        <div class="d-row"><dt>代表成就</dt><dd>让整栋宿舍楼都记住他有一条蓝毛巾</dd></div>
+        <div class="d-row"><dt>当前状态</dt><dd>在被窝里，勿扰。有事请留言，他三天后统一已读不回。</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ================= 技能 ================= -->
+  <section class="wrap section" id="skills">
+    <div class="section-head">
+      <div>
+        <div class="tag">Skill Tree · 离谱天赋树</div>
+        <h2 class="section-title">核心技能面板</h2>
+        <p class="section-desc">以下数值由配泼睿本人自评，已由本站向下取整到「还算可信」的区间。</p>
+      </div>
+    </div>
+
+    <div class="skills reveal">
+      <div class="skill">
+        <div class="skill-top"><span>被窝结界展开</span><span class="pct">100%</span></div>
+        <div class="bar"><i data-val="100"></i></div>
+        <div class="skill-note">范围：整张床，偶尔溢出到地板</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>蓝毛巾造型设计</span><span class="pct">99%</span></div>
+        <div class="bar"><i data-val="99"></i></div>
+        <div class="skill-note">可切换披风／兜帽／王冠三种形态</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>眼镜反光干扰</span><span class="pct">96%</span></div>
+        <div class="bar"><i data-val="96"></i></div>
+        <div class="skill-note">可对室友造成 3 秒短暂致盲</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>镜头前装无辜</span><span class="pct">94%</span></div>
+        <div class="bar"><i data-val="94"></i></div>
+        <div class="skill-note">经典表情：嘴角上扬 3°，眼神迷茫</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>田径场被迫营业</span><span class="pct">91%</span></div>
+        <div class="bar"><i data-val="91"></i></div>
+        <div class="skill-note">跑不动，但笑得很标准</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>凌晨三点说「再玩五分钟」</span><span class="pct">100%</span></div>
+        <div class="bar"><i data-val="100"></i></div>
+        <div class="skill-note">从未兑现，一次都没有</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>玩偶人质谈判</span><span class="pct">88%</span></div>
+        <div class="bar"><i data-val="88"></i></div>
+        <div class="skill-note">人质：一只粉色耳朵的兔子</div>
+      </div>
+      <div class="skill">
+        <div class="skill-top"><span>准时起床</span><span class="pct">2%</span></div>
+        <div class="bar"><i data-val="2"></i></div>
+        <div class="skill-note">数据来自 200 次失败尝试</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 名言 ================= -->
+  <section class="section" aria-label="配泼睿名言">
+    <div class="wrap section-head" style="margin-bottom:0">
+      <div>
+        <div class="tag">Words of Wisdom</div>
+        <h2 class="section-title">名人名言（他自己说的）</h2>
+      </div>
+    </div>
+    <div class="quote-band" style="margin-top:18px" aria-hidden="true">
+      <div class="quote-track">
+        <span>我下的任务罢了</span>
+        <span>别拍了，再拍收费</span>
+        <span>这条毛巾是我的本体</span>
+        <span>我不是懒，是被窝需要我</span>
+        <span>眼镜一戴，谁都不爱</span>
+        <span>再玩五分钟（已过三小时）</span>
+        <span>起床是对周末的不尊重</span>
+        <span>我下的任务罢了</span>
+        <span>别拍了，再拍收费</span>
+        <span>这条毛巾是我的本体</span>
+        <span>我不是懒，是被窝需要我</span>
+        <span>眼镜一戴，谁都不爱</span>
+        <span>再玩五分钟（已过三小时）</span>
+        <span>起床是对周末的不尊重</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 好友评价 ================= -->
+  <section class="wrap section" id="reviews">
+    <div class="section-head">
+      <div>
+        <div class="tag">Testimonials · 真实（大概）</div>
+        <h2 class="section-title">朋友们的血泪控诉 <span class="count">共 114 条，精选 6 条</span></h2>
+        <p class="section-desc">以下评价均来自匿名人士，配泼睿本人拒绝回应，因为他正在睡觉。</p>
+      </div>
+      <button class="btn small ghost" id="donateBtn" type="button">💰 打赏 ¥0.01</button>
+    </div>
+
+    <div class="cards reveal">
+      <div class="card">
+        <span class="badge">精选</span>
+        <p class="quote">“他裹着毯子的时候，最像个人。”</p>
+        <div class="who">匿名室友 A</div>
+      </div>
+      <div class="card">
+        <p class="quote">“眼镜一戴，智商 +3，视力 -300。”</p>
+        <div class="who">匿名室友 B</div>
+      </div>
+      <div class="card">
+        <span class="badge">血泪</span>
+        <p class="quote">“每次叫他起床，都像在拆炸弹。拆完了他还要说‘我下的任务罢了’。”</p>
+        <div class="who">匿名室友 C</div>
+      </div>
+      <div class="card">
+        <p class="quote">“他把玩偶当人质，我们只能答应他的条件：带饭、关灯、别说话。”</p>
+        <div class="who">知情人士</div>
+      </div>
+      <div class="card">
+        <p class="quote">“田径场上他跑步的样子像在逃命，但逃的是自己。”</p>
+        <div class="who">路过的好心人</div>
+      </div>
+      <div class="card">
+        <span class="badge">官方</span>
+        <p class="quote">“以上内容纯属虚构，如有雷同，那他确实这样。”</p>
+        <div class="who">本站站长</div>
+      </div>
+    </div>
+    <p style="font-family:var(--font-fun);font-size:12px;color:var(--ink-soft);margin-top:12px" id="donateLabel">
+      提示：打赏按钮是假的，钱不会到账，但配泼睿会收到你的心意（并不会）。
+    </p>
+  </section>
+
+  <!-- ================= 通缉令预告 ================= -->
+  <section class="wrap section" id="wanted-teaser">
+    <div class="teaser">
+      <div class="teaser-copy">
+        <div class="tag" style="color:var(--red)">MOST WANTED · 全站最高通缉</div>
+        <h2 class="section-title" style="margin-top:8px">他，已经被通缉了</h2>
+        <p class="section-desc">
+          罪名包括但不限于：长期非法占用被窝资源、把玩偶当人质、以及在世界面前持续散发
+          「我什么都不知道」的无辜表情。悬赏金额已高达 114,514,000,000 元（津巴布韦币）。
+        </p>
+        <div class="hero-actions" style="margin-bottom:0">
+          <a class="btn primary" href="wanted.html">查看通缉令原件</a>
+          <a class="btn ghost" href="gallery.html">先看看他的黑历史</a>
+        </div>
+      </div>
+      <figure class="teaser-fig">
+        <img src="assets/wanted.jpg" alt="配泼睿通缉令" width="1017" height="1440" loading="lazy">
+        <figcaption>WANTED · 原件扫描件</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 最新爆料 ================= -->
+  <section class="wrap section" id="news">
+    <div class="section-head">
+      <div>
+        <div class="tag">Breaking · 宿舍快讯</div>
+        <h2 class="section-title">最新爆料 <span class="count">图库已扩充到 9 张</span></h2>
+        <p class="section-desc">
+          热心室友持续供稿，本周收获 4 张珍贵影像。以下为头条摘要，配文均由本站瞎编，图片均为真实截图。
+        </p>
+      </div>
+      <a class="btn small ghost" href="gallery.html">查看全部 9 张 →</a>
+    </div>
+    <div class="news">
+      <a class="news-card" href="gallery.html">
+        <div class="thumb">
+          <span class="badge">头条</span>
+          <img src="assets/prof.jpg" alt="配泼睿被做成 bilibili 点击诱饵封面" width="768" height="1392" loading="lazy">
+        </div>
+        <div class="nbody">
+          <h4>「出生大学最年轻的教授」20 多年来第一次公开讲话，竟然是为了……</h4>
+          <p>……为了让大家别吵他睡觉。封面标题由 bilibili 热心网友编写，本人看完只说了一句「呀嘞呀嘞」。</p>
+          <div class="src">来源：宿舍日报 · 第 114514 期</div>
+        </div>
+      </a>
+      <a class="news-card" href="gallery.html">
+        <div class="thumb">
+          <span class="badge">独家</span>
+          <img src="assets/stick.jpg" alt="配泼睿在室内挥棍练功" width="939" height="1709" loading="lazy">
+        </div>
+        <div class="nbody">
+          <h4>深夜练功被室友偷拍：手持长棍，脚踩蓝拖鞋</h4>
+          <p>据不愿透露姓名的室友称，这是他新研发的「起床气驱散术」，目前唯一战绩是打翻了垃圾桶。</p>
+          <div class="src">来源：宿舍楼道监控（并没有）</div>
+        </div>
+      </a>
+      <a class="news-card" href="gallery.html">
+        <div class="thumb">
+          <span class="badge">现场</span>
+          <img src="assets/brawl.jpg" alt="配泼睿与两位室友在客厅争论" width="775" height="1355" loading="lazy">
+        </div>
+        <div class="nbody">
+          <h4>宿舍三人对峙 40 分钟，辩题至今没有结论</h4>
+          <p>蓝衣男子正在激烈陈述，另外两位室友表情复杂。知情人士透露：吵的是今晚到底谁洗碗。</p>
+          <div class="src">来源：现场目击者 · 端着泡面那位</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= 游戏厅宣传 ================= -->
+  <section class="wrap section" style="padding-top:6px">
+    <div class="promo">
+      <div>
+        <div class="promo-tag">NEW · 游戏厅正式营业</div>
+        <h3>6 台机器，全部免费，全部用他的脸</h3>
+        <p>
+          保卫被窝（类植物大战僵尸）、打闹钟（30 秒手速，冒出来的是他本人）、接外卖（用被子接住室友的投喂）、
+          配泼睿扭蛋机（12 张照片卡，SSR 概率 3%）、浓度测试（8 题测出你到底多懂他）、记脸挑战（6 张照片翻牌配对）。
+          投币口是假的，分数存在你浏览器里——所以最高分也可以自己刷，我们不管。
+        </p>
+      </div>
+      <a class="btn primary" href="arcade.html">🎮 进游戏厅</a>
+    </div>
+  </section>
+
+  <!-- ================= B 站推广 ================= -->
+  <section class="wrap section" id="bili">
+    <div class="bili-card">
+      <div style="position:relative;z-index:1">
+        <div class="tag" style="color:var(--red)">BILIBILI · 官方唯一指定观猴平台</div>
+        <h2 class="section-title" style="margin:8px 0 10px">配泼睿的 B 站空间</h2>
+        <p class="section-desc">
+          UID 1807171328。关注他，看他下一次更新是什么时候（上一次是三个月前）。
+          本站所有名场面均取材于他的视频，已获得他本人的「呀嘞呀嘞」授权。
+        </p>
+        <div class="hero-actions" style="margin-bottom:0">
+          <a class="btn primary" href="https://space.bilibili.com/1807171328" target="_blank" rel="noopener">📺 去 B 站看他</a>
+          <a class="btn ghost" href="gallery.html">看他的 18 张名场面</a>
+        </div>
+      </div>
+      <div class="bili-shots">
+        <a href="https://space.bilibili.com/1807171328" target="_blank" rel="noopener">
+          <img src="assets/bili_food.jpg" alt="配泼睿在田径场自拍：这里就是我的新学校吗" loading="lazy">
+          <span>这里就是我的新学校吗</span>
+        </a>
+        <a href="https://space.bilibili.com/1807171328" target="_blank" rel="noopener">
+          <img src="assets/bili_clones.jpg" alt="配泼睿分身剪辑" loading="lazy">
+          <span>哈哈哈哎呦我的妈</span>
+        </a>
+        <a href="https://space.bilibili.com/1807171328" target="_blank" rel="noopener">
+          <img src="assets/bili_towel.jpg" alt="配泼睿头顶白毛巾跳舞" loading="lazy">
+          <span>奶奶艾赤石</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 每日运势 ================= -->
+  <section class="wrap section" id="fortune">
+    <div class="section-head">
+      <div>
+        <div class="tag">Daily · 今日份的离谱</div>
+        <h2 class="section-title">配泼睿今日运势 <span class="count" id="fortuneDate">今天</span></h2>
+        <p class="section-desc">根据他昨晚的翻身次数、今早关闹钟的速度、以及外卖备注字数综合算出。准确率约等于零。</p>
+      </div>
+      <button class="btn small" id="rerollFortune" type="button">🎲 再摇一签</button>
+    </div>
+    <div class="fortune">
+      <div>
+        <h3 id="fortuneTitle">今日宜：赖床</h3>
+        <div class="luck-line">
+          <span class="luck-pill do">宜 <b id="fortuneDo">赖床</b></span>
+          <span class="luck-pill dont">忌 <b id="fortuneDont">早起</b></span>
+          <span class="luck-pill">幸运物 <b id="fortuneItem">蓝毛巾</b></span>
+        </div>
+        <p class="section-desc" id="fortuneText" style="margin-top:14px">今天适合在被窝里思考人生，但不必真的思考。</p>
+      </div>
+      <div class="fortune-side">
+        <div class="idx"><span id="fortuneScore">92</span><small>躺平指数</small></div>
+        <div class="lucky-emoji">🛏️</div>
+        <div class="panel-meta">幸运数字 <b id="fortuneNum">5</b> ／ 幸运色 <b id="fortuneColor">被窝蓝</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 周边商店 ================= -->
+  <section class="wrap section" id="shop">
+    <div class="section-head">
+      <div>
+        <div class="tag">Merch · 官方周边（并不官方）</div>
+        <h2 class="section-title">离谱周边商店 <span class="count">全场售罄</span></h2>
+        <p class="section-desc">商品图片均为文字，价格均为瞎写，库存均为零。点击购买会得到一个温柔的提示。</p>
+      </div>
+      <a class="btn small ghost" href="gallery.html">先看看实物（图库）→</a>
+    </div>
+    <div class="shop">
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">巾</div>
+        <h4>正版蓝毛巾</h4>
+        <p>配泼睿同款，已使用 3 年，未经清洗。附赠一次「结界体验」，有效期 5 分钟。</p>
+        <div><span class="price">¥999</span><s>¥9.9</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">兔</div>
+        <h4>玩偶人质（粉色耳朵兔）</h4>
+        <p>被配泼睿挟持了两年，情绪稳定，会撒娇。买回去可以当人质，也可以当枕头。</p>
+        <div><span class="price">¥666</span><s>¥66</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">镜</div>
+        <h4>同款圆框眼镜</h4>
+        <p>度数 -800，戴上世界立刻变糊。附赠「呀嘞呀嘞」眼神教学，学不会不退钱。</p>
+        <div><span class="price">¥114</span><s>¥514</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">被</div>
+        <h4>被窝体验券（单次）</h4>
+        <p>在配泼睿的被窝里躺 5 分钟，含结界、玩偶与人格侮辱。有效期：明天早上。</p>
+        <div><span class="price">¥514</span><s>¥5.14</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">啧</div>
+        <h4>「呀嘞呀嘞」语音包</h4>
+        <p>共 1 条音频，时长 1.2 秒，重复播放效果极佳。室友听了想搬家。</p>
+        <div><span class="price">¥233</span><s>¥2.33</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+      <div class="goods">
+        <span class="soldout">SOLD OUT</span>
+        <div class="thumb">饭</div>
+        <h4>外卖备注模板</h4>
+        <p>九个字：「放门口，别敲门，谢谢。」适用于所有不想与人类接触的场合。</p>
+        <div><span class="price">¥9.9</span><s>¥0.99</s></div>
+        <button class="btn small ghost buy" type="button">立即购买</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 宿舍热搜 ================= -->
+  <section class="wrap section" id="hot">
+    <div class="section-head">
+      <div>
+        <div class="tag">Trending · 宿舍热搜</div>
+        <h2 class="section-title">他在热搜上住下了</h2>
+        <p class="section-desc">榜单由室友用流量刷出来，数据真实度约等于「配泼睿今天早起了」。</p>
+      </div>
+    </div>
+    <ol class="hotlist">
+      <li><span class="rank">1</span><span>配泼睿 连续躺平 23 小时<span class="tag new">新</span></span><span class="heat">1,145,140</span></li>
+      <li><span class="rank">2</span><span>蓝毛巾 被列为宿舍一级保护物品<span class="tag up">热</span></span><span class="heat">982,331</span></li>
+      <li><span class="rank">3</span><span>室友 集体申请换宿舍</span><span class="heat">871,200</span></li>
+      <li><span class="rank">4</span><span>闹钟 销量暴跌 99%<span class="tag up">热</span></span><span class="heat">765,432</span></li>
+      <li><span class="rank">5</span><span>被窝结界 疑似升级到第二形态</span><span class="heat">654,321</span></li>
+      <li><span class="rank">6</span><span>「放门口别敲门」 成宿舍流行语</span><span class="heat">543,210</span></li>
+      <li><span class="rank">7</span><span>田径场 惊现标准微笑</span><span class="heat">432,109</span></li>
+      <li><span class="rank">8</span><span>辅导员 第 8 波亲自登场<span class="tag new">新</span></span><span class="heat">321,008</span></li>
+      <li><span class="rank">9</span><span>呀嘞呀嘞 语音包上线</span><span class="heat">210,907</span></li>
+      <li><span class="rank">10</span><span>配泼睿 否认自己是网红</span><span class="heat">109,806</span></li>
+    </ol>
+    <p class="legal">热搜词条均由本站虚构，与任何真实平台无关。配泼睿本人表示：「呀嘞呀嘞。」</p>
+  </section>
+
+  <!-- ================= 关于本站 / 免责 ================= -->
+  <section class="wrap section" id="about">
+    <div class="section-head">
+      <div>
+        <div class="tag">About · 说点正经的</div>
+        <h2 class="section-title">关于本站 &amp; 免责声明</h2>
+      </div>
+    </div>
+    <div class="duo">
+      <div class="panel">
+        <div class="panel-label">WHY THIS SITE</div>
+        <p class="status-line" style="font-size:16px;line-height:1.85">
+          这个网站是朋友之间的整蛊产物：某天配泼睿又一次在被窝里说出「我下的任务罢了」，
+          于是我们决定给他一个「官方主页」，让全世界（其实只有我们）都知道他有多离谱。
+        </p>
+        <div class="panel-meta">建站耗时：一个下午 ／ 受害者数量：1 人 ／ 道歉次数：0 次</div>
+      </div>
+      <div class="panel dark">
+        <div class="panel-label">DISCLAIMER</div>
+        <p class="status-line" style="font-size:14px;line-height:1.85">
+          本站所有内容均为夸张搞笑，不构成对配泼睿本人任何真实评价。
+          他本人其实帅气、善良、讲卫生，只是有点爱睡觉。
+          请勿当真，更不要真的报警、人肉或上门送快递。
+        </p>
+        <div class="panel-meta">本站已运行 <span id="visitCount">114,515</span> 人次 ／ 当前在线 <span id="onlineCount">5</span> 人</div>
+      </div>
+    </div>
+    <div class="legal">
+      <p><b>隐私政策：</b>本站不收集任何数据，除了你刚才点击「我错了」时的心虚程度。</p>
+      <p><b>版权声明：</b>© <span id="year">2025</span> 配泼睿全球粉丝后援会（现有成员 1 人）。图片版权归配泼睿本人所有，他本人表示「随便吧」。</p>
+      <p><b>友情提示：</b>如果配泼睿本人看到这个网站并表示不满，我们会在 0.5 秒内下架，然后换个域名重新上线。</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h3>配泼睿 · 官方网站</h3>
+      <p>一个由朋友含泪维护的整蛊站点。我们不生产离谱，我们只是配泼睿的搬运工。</p>
+      <p style="font-size:12px">🛏️ 本站已被 3 位室友举报 ／ 备案号：被窝 ICP 备 114514 号</p>
+    </div>
+    <div>
+      <h3>快速通道</h3>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="wanted.html">通缉令</a></li>
+        <li><a href="gallery.html">黑历史图库</a></li>
+        <li><a href="honors.html">荣誉墙</a></li>
+        <li><a href="arcade.html">游戏厅</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>免责声明</h3>
+      <div class="foot-note">
+        本站为朋友之间的娱乐整蛊作品，所有「罪名」「数据」「奖项」均为虚构玩笑，
+        不代表配泼睿本人的真实情况，也不含任何恶意。请开心观看，理性转发。
+      </div>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© <span id="year2">2025</span> 配泼睿全球粉丝后援会 · 本站由 114,514 位网友共同维护（其实只有站长）</span>
+    <span>Made with 🧣 &amp; 熬夜 · <a href="index.html#about" style="color:#ffe9a8">关于本站</a></span>
+  </div>
+</footer>
+
+<!-- 整蛊弹窗 -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <div class="modal-emoji">⚠️</div>
+    <h3 id="modalTitle">系统检测到你在偷看</h3>
+    <p>你正在浏览 <b>配泼睿</b> 的私人主页。本页面已被 <b>3 位室友</b> 举报，理由是「过于离谱」。</p>
+    <div class="modal-btns">
+      <button class="btn ghost dodge" id="dodgeBtn" type="button">我错了，马上关</button>
+      <button class="btn primary" id="stayBtn" type="button">继续看（推荐）</button>
+    </div>
+    <p class="modal-fine">点击「继续看」即表示你同意：本站内容纯属整蛊，笑完请勿当真。</p>
+  </div>
+</div>
+
+<script src="script.js?v=7"></script>
+</body>
+</html>
