@@ -51,7 +51,7 @@ a{color:inherit}
   font-size:12.5px;letter-spacing:.08em;font-weight:700;
   border-bottom:3px solid var(--ink);
 }
-.ticker-track{display:flex;gap:36px;width:max-content;padding:9px 0;animation:scrollX 30s linear infinite}
+.ticker-track{display:flex;gap:36px;width:max-content;padding:9px 0;animation:scrollX 70s linear infinite}
 .ticker-track span{white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
 .ticker-track span::after{content:"◆";color:var(--red);margin-left:8px}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -261,7 +261,7 @@ a{color:inherit}
   background:var(--ink);color:#fff8e6;border-block:3px solid var(--ink);
   overflow:hidden;padding:0;margin:8px 0 0;
 }
-.quote-track{display:flex;gap:44px;width:max-content;padding:16px 0;animation:scrollX 34s linear infinite}
+.quote-track{display:flex;gap:44px;width:max-content;padding:16px 0;animation:scrollX 60s linear infinite}
 .quote-track span{font-family:var(--font-serif);font-size:clamp(18px,2.6vw,26px);white-space:nowrap;letter-spacing:.04em}
 .quote-track span::before{content:"“";color:var(--yellow);margin-right:6px}
 .quote-track span::after{content:"”";color:var(--yellow);margin-left:6px}
@@ -875,6 +875,34 @@ canvas#game{
   .machine .dome{width:120px;height:120px;font-size:44px}
 }
 
+/* ---------- B 站推广 ---------- */
+.bili-card{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;
+  background:linear-gradient(150deg,#fffdf6,#fbe9e6);border:3px solid var(--ink);
+  border-radius:20px;padding:26px 28px;box-shadow:10px 10px 0 var(--ink);
+  position:relative;overflow:hidden;
+}
+.bili-card::before{
+  content:"B";position:absolute;right:-10px;top:-46px;font-family:var(--font-poster);
+  font-size:210px;color:rgba(209,52,42,.06);pointer-events:none;line-height:1;
+}
+.bili-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:1}
+.bili-shots a{
+  display:block;position:relative;border:3px solid var(--ink);border-radius:12px;overflow:hidden;
+  box-shadow:4px 4px 0 rgba(36,28,22,.8);transition:transform .2s;
+}
+.bili-shots a:nth-child(1){transform:rotate(-1.5deg)}
+.bili-shots a:nth-child(3){transform:rotate(1.5deg)}
+.bili-shots a:hover{transform:rotate(0) translateY(-4px)}
+.bili-shots img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.bili-shots span{
+  position:absolute;left:0;right:0;bottom:0;padding:18px 8px 6px;font-size:10.5px;line-height:1.35;
+  color:#fff;background:linear-gradient(transparent,rgba(20,14,10,.88));font-weight:700;
+}
+@media (max-width:860px){
+  .bili-card{grid-template-columns:1fr;padding:20px}
+}
+
 /* ---------- 响应式 ---------- */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr;gap:34px;padding-top:36px}
@@ -926,6 +954,7 @@ canvas#game{
   object-position:var(--pos,center 25%);z-index:0;
 }
 .gcard .art.silhouette{filter:grayscale(1) contrast(1.1) brightness(.92)}
+.gcard.artfail{background:linear-gradient(160deg,#e8ddc7,#d6c6a9)}
 .gcard .veil{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(20,14,10,0) 42%,rgba(20,14,10,.86) 100%);
@@ -959,27 +988,69 @@ canvas#game{
 .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:760px;margin-inline:auto}
 .mcard{
   position:relative;aspect-ratio:3/4;border:0;padding:0;background:transparent;cursor:pointer;
-  perspective:900px;-webkit-tap-highlight-color:transparent;
+  -webkit-tap-highlight-color:transparent;
 }
-.mcard .inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,1.2,.4,1)}
-.mcard.flip .inner{transform:rotateY(180deg)}
-.mcard .mf,.mcard .mb{
+.mcard .mb,.mcard .mf{
   position:absolute;inset:0;border:3px solid var(--ink);border-radius:12px;overflow:hidden;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:4px 4px 0 var(--ink);
+  box-shadow:4px 4px 0 var(--ink);transition:opacity .22s ease;
 }
 .mcard .mb{
   background:repeating-linear-gradient(135deg,#7db3e0 0 12px,#6aa6d8 12px 24px);
   display:grid;place-items:center;font-family:var(--font-serif);font-size:30px;color:#fff;
-  text-shadow:2px 2px 0 rgba(36,28,22,.35);
+  text-shadow:2px 2px 0 rgba(36,28,22,.35);z-index:1;
 }
-.mcard .mf{transform:rotateY(180deg);background:#fff}
+.mcard .mf{opacity:0;background:#f6eedd;z-index:2}
 .mcard .mf img{width:100%;height:100%;object-fit:cover;display:block}
+.mcard .mf .mfallback{
+  display:grid;place-items:center;width:100%;height:100%;padding:8px;text-align:center;
+  background:linear-gradient(160deg,#e9dfc9,#d7c8ab);color:#5b4a3c;
+  font-size:12px;font-weight:900;line-height:1.4;
+}
+.mcard.flip .mb{opacity:0}
+.mcard.flip .mf{opacity:1}
 .mcard.matched .mf{border-color:#3f8f6a;box-shadow:4px 4px 0 #3f8f6a}
 .mcard.matched{animation:pop .3s ease}
-.mcard.matched .mb{background:#cfe8dc}
 .memory-note{text-align:center;font-family:var(--font-fun);font-size:12px;color:var(--ink-soft);margin-top:12px}
 @media (max-width:640px){
   .memory-grid{grid-template-columns:repeat(3,1fr);gap:9px}
+}
+
+/* ============================================================
+   保卫被窝 2.0 · 选卡 / 波次 / 铲子
+   ============================================================ */
+.wave-wrap{
+  position:relative;height:16px;border:2px solid var(--ink);border-radius:999px;
+  background:#fff;margin:0 0 10px;overflow:hidden;
+}
+.wave-fill{
+  height:100%;width:0;transition:width .3s ease;
+  background:repeating-linear-gradient(135deg,#f0b3a8 0 10px,#e8a196 10px 20px);
+}
+.wave-wrap span{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--ink);
+}
+.select-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0 10px}
+.sel-card{
+  position:relative;border:3px solid var(--ink);border-radius:12px;background:#fff;padding:7px 5px 6px;
+  cursor:pointer;text-align:center;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,background .2s;
+  font:inherit;color:inherit;
+}
+.sel-card:hover{transform:translateY(-2px)}
+.sel-card.sel{background:#fff2ee;border-color:var(--red);box-shadow:0 0 0 3px rgba(209,52,42,.18),3px 3px 0 var(--ink)}
+.sel-card canvas{display:block;width:46px;height:46px;margin:0 auto 1px}
+.sel-card b{display:block;font-size:12px;line-height:1.3}
+.sel-card small{display:block;font-size:10px;color:var(--ink-soft);line-height:1.35}
+.sel-card .cost{font-family:var(--font-serif);color:var(--red);font-size:10.5px;font-weight:700}
+.sel-count{font-size:12.5px;color:var(--ink-soft);margin:2px 0 12px}
+.sel-count b{color:var(--red)}
+.game-overlay .ov-card.wide{max-width:740px}
+.licon.round{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);flex:none}
+#shovelBtn.active{background:var(--yellow);border-color:var(--ink);box-shadow:0 0 0 3px rgba(255,224,102,.5),3px 3px 0 var(--ink)}
+
+@media (max-width:640px){
+  .select-grid{grid-template-columns:repeat(3,1fr)}
+  .game-overlay .ov-card.wide{max-width:100%}
 }
 
 @media (prefers-reduced-motion:reduce){

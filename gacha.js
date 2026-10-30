@@ -107,8 +107,17 @@
       var art = document.createElement('img');
       art.className = 'art' + (card.silhouette ? ' silhouette' : '');
       art.src = card.img;
-      art.alt = card.name;
+      art.alt = '';
       if (card.pos) art.style.setProperty('--pos', card.pos);
+      art.addEventListener('error', function () {
+        if (!art.getAttribute('data-retried')) {
+          art.setAttribute('data-retried', '1');
+          art.src = card.img + '?r=' + Date.now();
+          return;
+        }
+        d.classList.add('artfail');
+        if (art.parentNode) art.parentNode.removeChild(art);
+      });
       d.appendChild(art);
       var veil = document.createElement('div');
       veil.className = 'veil';

@@ -460,6 +460,13 @@
     }
   }
 
+  /* ---------------- 图片兜底：加载失败就隐藏，避免出现裂图 ---------------- */
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (!t || t.tagName !== 'IMG') return;
+    if (t.classList.contains('ov-photo')) t.style.display = 'none';
+  }, true);
+
   /* ---------------- 周边商店（永远售罄） ---------------- */
   $$('.buy').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -469,4 +476,21 @@
       btn.setAttribute('disabled', 'disabled');
     });
   });
+
+  /* ---------------- 滚动字幕速度：按内容宽度换算，避免 PC 上过快 ---------------- */
+  function fitTickers() {
+    $$('.ticker-track, .quote-track').forEach(function (track) {
+      var half = track.scrollWidth / 2;
+      if (!half) return;
+      var speed = 52; /* 每秒滚动的像素，越小越慢 */
+      track.style.animationDuration = Math.max(18, half / speed).toFixed(1) + 's';
+    });
+  }
+  fitTickers();
+  var tickTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(tickTimer);
+    tickTimer = setTimeout(fitTickers, 200);
+  });
+  window.addEventListener('load', fitTickers);
 })();
